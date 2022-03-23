@@ -1,13 +1,7 @@
-import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, Typography } from "@mui/material";
-import { useState } from "react";
-//import { query_all } from "../../../Postgresql/psql";
-//import firebase from '../../../Firebase/index';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import styles from './Datalist.module.css';
-//import handler from "../../api/movies";
 
 export default function DataList(props){
-  const [title, setTitle] = useState([]);
-  const [loader, setLoader] = useState(true);
 
   return (
       <Grid container direction="column">

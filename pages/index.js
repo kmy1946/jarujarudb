@@ -15,14 +15,16 @@ export async function getServerSideProps() {
   return { props: { data } };
 }
 
-export default function Home({data}) {
+export default function Home() {
   const [datas, setDatas] = useState([])
+  {/*
 
   useEffect(() => {
     const earnedDatas = data.movies.rows
     //console.log(earnedDatas);
     setDatas(earnedDatas);
   }, [])
+*/}
   return (
     <div className={styles.container}>
       <Head>
@@ -37,11 +39,13 @@ export default function Home({data}) {
           <title>ジャルジャルDB</title>
         </Head>
         <TopGrid/>
+        {/*
         <DataList
           datas={datas}
           //id={data.id} title={data.title} url={data.url} thumbnail={data.thumbnail}
           //views={data.views} created_at={data.created_at}
         />
+        */}
       </Layout>
     </div>
 

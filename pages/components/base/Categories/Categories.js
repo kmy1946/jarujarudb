@@ -4,6 +4,7 @@ import categories from "./Categories.json";
 export default function Categories() {
   return (
       <div className={styles.categories_scroll_nav}>
+        <br/>
         <div className={styles.categories_tag}>
             <p>
               タグ検索
@@ -22,6 +23,8 @@ export default function Categories() {
             })
           }
         </ul>
+        <br/><br/>
+        <br/><br/><hr/>
       </div>
   )
 }

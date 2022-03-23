@@ -55,9 +55,8 @@ export default function DataList(props){
               }
               )
           )}
-      
-
-        </Grid>
+          
+        </Grid><br/><br/><br/>
       </Grid>
   )
 }

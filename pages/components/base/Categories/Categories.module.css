@@ -1,4 +1,5 @@
 .categories_scroll_nav {
+  margin-top: 50px;
 }
 
 .categories_scroll_nav::-webkit-scrollbar {

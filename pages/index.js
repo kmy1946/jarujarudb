@@ -16,12 +16,12 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
-  const [datas, setDatas] = useState([])
+  //const [datas, setDatas] = useState([])
 
   useEffect( async() => {
     const earnedDatas = data.movies.rows
     //console.log('earcedDatas:',earnedDatas);
-    setDatas(earnedDatas);
+    //setDatas(earnedDatas);
   }, [])
   return (
     <div className={styles.container}>
@@ -38,7 +38,7 @@ export default function Home({ data }) {
         </Head>
         <TopGrid/>
         <DataList
-          datas={datas}
+          data={data}//{datas}
           //id={data.id} title={data.title} url={data.url} thumbnail={data.thumbnail}
           //views={data.views} created_at={data.created_at}
         />

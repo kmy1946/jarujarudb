@@ -1,24 +1,24 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from './Datalist.module.css';
 
 export default function DataList(props){
-  useEffect(() => {
-    console.log(props.datas.length)
-
+  const [datas, setDatas] = useState([]);
+  useEffect( () => {
+    //console.log(props.data.movies.rows);
+    const list = []
+    list.push(props.data.movies.rows);
+    setDatas(list);
   },[props.datas])
   return (
       <Grid container direction="column">
         <Grid container className={styles.datalist}>
+          
         {
           (
-            props.datas.length == 0 ?
+            datas.length > 0 ?
               <>
-                Sorry No Data...
-              </>
-              :
-              <>
-              {props.datas.map(data => {
+              {datas[0].map(data => {
                   const beforestr = data.url
                   const regex = /(?<=v=)(.*)/
                   const result = beforestr.match(regex);
@@ -56,8 +56,13 @@ export default function DataList(props){
                   )
                   }
               </>
+              :
+              <>
+              Sorry No Data...
+              </>
           )
         }
+      
 
         </Grid>
       </Grid>

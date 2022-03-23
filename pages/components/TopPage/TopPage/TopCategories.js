@@ -5,7 +5,7 @@ export default function TopCategories() {
         <div className={styles.grid}>
           {datas.map(data=> {
             return (
-              <a href={data.link} key={data.id} className={styles.card} target='_blank'>
+              <a href={data.link} key={data.id} className={styles.card} rel="noreferrer" target='_blank'>
                 <h2>{data.title} &rarr;</h2>
                 <p>{data.description}</p>
               </a>

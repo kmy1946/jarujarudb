@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import styles from './Datalist.module.css';
 
@@ -28,25 +28,27 @@ export default function DataList(props){
               return(
                 <Grid item xs={12} sm={3} key={data.id}>
                   <Card className={styles.datalist_card}>
-                    <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
-                    <CardContent>
-                    <Typography variant="body2" component="p" className={styles.datalist_title}>
-                      {data.title}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                      {data.detail}
-                    </Typography>
+                    <CardActionArea href={gotolink} target='_blank'>
+                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
+                      <CardContent style={{ height:"170px" }}>
+                      <Typography variant="body2" component="p" className={styles.datalist_title}>
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" component="p">
+                        {data.detail}
+                      </Typography>
+                      <Typography variant='body2' component="p" className={styles.datalist_created_at}>
+                        {data.created_at}
+                      </Typography>
+                      <Typography variant='body2' component="p" className={styles.datalist_views}>
+                        {data.views}{viewstext}
+                      </Typography>
+                      </CardContent>
                     
-                    <Typography variant='body2' component="p" className={styles.datalist_created_at}>
-                      {data.created_at}
-                    </Typography>
-                    <Typography variant='body2' component="p" className={styles.datalist_views}>
-                      {data.views}{viewstext}
-                    </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" href={gotolink} target='_blank' className={styles.datalist_gotolink}>動画をみる</Button>
-                    </CardActions>
+                      <CardActions>
+                        <Button size="small" href={gotolink} target='_blank' className={styles.datalist_gotolink}>動画をみる</Button>
+                      </CardActions>
+                    </CardActionArea>
                   </Card>
                 </Grid>
               )

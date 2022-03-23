@@ -1,7 +1,7 @@
 import { Container, Grid, Typography } from "@mui/material";
 import styles from "./Footer.module.css";
-import { FooterArchive } from "./FooterArchive";
-import { FooterCategory } from "./FooterCategory";
+import FooterArchive from "./FooterArchive";
+import FooterCategory from "./FooterCategory";
 
 export default function Footer() {
   return (

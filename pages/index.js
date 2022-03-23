@@ -4,8 +4,7 @@ import styles from '../styles/Home.module.css';
 import Layout from './components/layout';
 
 import DataList from './components/products/DataList';
-import { useEffect } from 'react';
-import { TopCategories } from './components/TopPage/TopPage/TopCategories';
+import TopCategories from './components/TopPage/TopPage/TopCategories';
 
 export async function getServerSideProps() {
   //const response = await fetch('http://localhost:3000/api/moviesdb');//local

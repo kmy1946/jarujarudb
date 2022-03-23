@@ -20,8 +20,9 @@ export default function Home({ data }) {
 
   useEffect( async() => {
     const earnedDatas = data.movies.rows
+    demodatas = ["d", "gsfsf", "sazf"]
     //console.log('earcedDatas:',earnedDatas);
-    setDatas(earnedDatas);
+    setDatas(demodatas);
   }, [])
   return (
     <div className={styles.container}>

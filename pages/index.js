@@ -20,9 +20,8 @@ export default function Home({ data }) {
 
   useEffect( async() => {
     const earnedDatas = data.movies.rows
-    demodatas = ["d", "gsfsf", "sazf"]
     //console.log('earcedDatas:',earnedDatas);
-    setDatas(demodatas);
+    setDatas(earnedDatas);
   }, [])
   return (
     <div className={styles.container}>
@@ -54,11 +53,6 @@ export default function Home({ data }) {
               </>
           )
         }
-        <DataList
-          datas={datas}
-          //id={data.id} title={data.title} url={data.url} thumbnail={data.thumbnail}
-          //views={data.views} created_at={data.created_at}
-        />
       </Layout>
     </div>
 

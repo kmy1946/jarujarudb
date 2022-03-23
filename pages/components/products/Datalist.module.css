@@ -1,0 +1,31 @@
+.datalist {
+  padding: 2px;
+  border-radius: 0px;
+}
+.datalist_title {
+  position: relative;
+  max-height: 150px;
+  font-family: "Roboto","Arial",sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  -webkit-line-clamp: 3;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
+.datalist_card {
+  margin: 2px;
+}
+.datalist_created_at {
+  margin: 10px;
+  text-align: right;
+}
+.datalist_gotolink {
+  text-align: right;
+}
+.datalist_views {
+  text-align: left;
+}

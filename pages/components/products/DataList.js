@@ -36,7 +36,7 @@ export default function DataList(props){
                       {data.title}
                     </Typography>
                     <Typography variant="body2" component="p">
-                        {data.detail}
+                      {data.detail}
                     </Typography>
                     
                     <Typography variant='body2' component="p" className={styles.datalist_created_at}>

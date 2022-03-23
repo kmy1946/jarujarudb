@@ -3,6 +3,7 @@ import styles from './layout.module.css';
 import Header from "./base/header";
 import Footer from "./base/Footer/Footer";
 import Heading from "./base/Heading/Heading";
+import { TopPageTitle } from "./TopPage/TopPageTitle.js/TopPageTitle";
 
 export default function Layout(props) {
   return (
@@ -12,16 +13,9 @@ export default function Layout(props) {
         <title>{props.title}</title>
       </Head>
       <Header header={props.header} />
-      <>
-        <br/>
-        <br/>
-        <br/>
-        <h3>
-          {props.title}
-        </h3>
+        <TopPageTitle/>
         {props.children}
-      </>
-      <Footer footer='copyright DETECTOR.'></Footer>
+      <Footer />
     </div>
   )
 }

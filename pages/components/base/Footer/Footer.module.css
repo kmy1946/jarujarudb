@@ -1,0 +1,107 @@
+.footer_group {
+  padding: 30px;
+  margin-top: 50px;
+  background-color: rgb(235, 235, 235);
+}
+.footer-centering {
+  margin: 0 auto;
+  text-align: center;
+  color: #69a844;
+  cursor: pointer;
+  font-weight: 700;
+}
+.footer-centering:hover {
+  color: #9edd38;
+}
+.footer__title {
+  text-align: center;
+}
+.footer__totop_box {
+  margin-bottom: 30px;
+}
+.footer__totop-link_box {
+  margin: 0 auto;
+  padding-bottom: 15px;
+  text-align: center;
+  color: rgb(80, 80, 80);
+  font-weight: 700;
+}
+.footer__totop-link_box:hover {
+  color: rgb(181, 207, 63);
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer__whensignin-link {
+  cursor: pointer
+}
+.footer__whensignin-link:hover {
+  text-decoration: none;
+  cursor: pointer
+}
+.footer__contact-link_box {
+  text-align: center;
+  color: rgb(0, 32, 211);
+}
+.footer__contact-link_box:hover {
+  color: rgb(89, 141, 253);
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer__contact-link {
+  text-align: center;
+  font-family: cursive;
+  cursor: pointer;
+  font-weight: 700;
+}
+.footer__description_box {
+  text-align: center;
+  color: rgb(72, 75, 77);
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.footer__description_text {
+  font-weight: 600;
+}
+
+/* archive list */
+.menu {
+  text-align: center;
+}
+.menu ul {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  padding: 5px;
+}
+
+input[type="checkbox"].on_off + ul{
+  height: 0;
+  overflow: hidden;
+}
+
+input[type="checkbox"].on_off:checked + ul{
+  height: auto;
+  color: #226ac9;
+  cursor: pointer;
+}
+.menu ul li:hover{
+  color: #3db8ff;
+  font-weight: 700;
+}
+
+/* FooterLeft2 */
+.footer__twitter {
+  text-align: center;
+  color: rgb(44, 113, 216);
+}
+.footer__twitter:hover {
+  color: rgb(91, 136, 204);
+}

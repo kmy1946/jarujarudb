@@ -9,14 +9,12 @@ export default function DataList(props){
     const list = []
     list.push(props.data.movies.rows);
     setDatas(...list);
-    console.log(list)
-  },[props.datas]);
+    //console.log(list)
+  },[]);//props.datas
 
   return (
       <Grid container direction="column">
         <Grid container className={styles.datalist}>
-          {console.log(datas)}
-
           {datas.length > 0 && (
             datas.map(data => {
               const beforestr = data.url

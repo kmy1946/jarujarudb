@@ -34,7 +34,7 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = client;
-  const movies = await selectAll(db, 'Select id, url, title, views, thumbnail, created_at from movie limit 5');
+  const movies = await selectAll(db, 'Select id, url, title, views, thumbnail, created_at from movie limit 8');
   //db.end();
 
   res.status(200).json({ movies });

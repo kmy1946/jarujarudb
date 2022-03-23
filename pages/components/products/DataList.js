@@ -2,10 +2,10 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 import styles from './Datalist.module.css';
 
 export default function DataList(props){
+
   return (
       <Grid container direction="column">
         <Grid container className={styles.datalist}>
-          {/*
           {props.datas.map(data => {
           
 
@@ -16,7 +16,7 @@ export default function DataList(props){
           
           let gotolink = 'https://www.youtube.com/watch?v='+urlv
           const viewstext = ' 回視聴'
-
+          
           return(
             <Grid item xs={12} sm={3} key={data.id}>
               <Card className={styles.datalist_card}>
@@ -45,7 +45,6 @@ export default function DataList(props){
           }
           )
           }
-        */}
         </Grid>
       </Grid>
   )

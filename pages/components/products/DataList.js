@@ -2,7 +2,6 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 import styles from './Datalist.module.css';
 
 export default function DataList(props){
-
   return (
       <Grid container direction="column">
         <Grid container className={styles.datalist}>

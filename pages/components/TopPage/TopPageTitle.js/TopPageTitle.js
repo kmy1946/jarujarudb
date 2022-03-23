@@ -1,5 +1,5 @@
 import styles from "./TopPageTitle.module.css";
-export function TopPageTitle() {
+export default function TopPageTitle() {
   return (
     <div>
       {/*

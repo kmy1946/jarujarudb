@@ -1,5 +1,5 @@
 import styles from "../TopPage.module.css";
-export function TopCategories() {
+export default function TopCategories() {
   return (
     <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>

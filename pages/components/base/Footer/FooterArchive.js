@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { useState } from "react";
 import styles from "./Footer.module.css";
 
-export function FooterArchive () {
+export default function FooterArchive () {
   const selectMenu = (event, path) => {
     window.location.href(path);//pathはvalueで指定
   };

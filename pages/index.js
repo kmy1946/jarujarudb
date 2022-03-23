@@ -9,7 +9,7 @@ import TopGrid from './components/TopGrid/TopGrid';
 
 export async function getServerSideProps() {
   //const response = await fetch('http://localhost:3000/api/moviesdb');
-  const response = await fetch('https://jarujarudb.vercel.app');
+  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb');
   const data = await response.json();
   //console.log('data:',data)
 

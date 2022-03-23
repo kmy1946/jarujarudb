@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
 import DataList from './components/products/DataList';
@@ -24,14 +24,16 @@ export default function Home({ data }) {
       </Head>
       <main className={styles.main}>
         <div className={styles.container}>
+          
           <Layout header='ジャルジャルDB'>
-            <TopCategories/>
             <DataList
               data={data}
             />
+            <TopCategories/>
           </Layout>
         </div>
       </main>
+      <Footer/>
     </div>
   )
 }

@@ -5,7 +5,8 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 100%;
+  background-color: rgb(231, 231, 231);
 }
 
 .card {
@@ -20,6 +21,7 @@
   max-width: 300px;
   min-width: 300px;
   min-height: 195px;
+  background-color: white;
 }
 
 .card:hover,

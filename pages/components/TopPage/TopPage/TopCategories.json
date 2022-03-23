@@ -16,12 +16,6 @@
     "title":"ネタのタネだけ表示",
     "description":"ネタのタネの動画だけを表示します。",
     "link":"https://nextjs.org/docs"
-  },
-  {
-    "id":"0004",
-    "title":"○○",
-    "description":"○○",
-    "link":"https://nextjs.org/docs"
   }
 
 ]

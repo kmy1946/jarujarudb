@@ -4,12 +4,12 @@ import { AppBar, Toolbar } from "@mui/material";
 
 export default function Heading() {
   return (
-    <div className={styles.root}>
-        <AppBar className={styles.menuBar}>
+    <div className={styles.header_root}>
+        <AppBar className={styles.header_menuBar}>
           <Toolbar className={styles.toolbar}>
             <div className={styles.header_left}>
               <Link href='/' className={styles.header_right_text}>
-                <strong>ジャルジャルDB</strong>
+                <strong>ジャルジャルDB!</strong>
               </Link>
             </div>
             <div className={styles.header_right}>

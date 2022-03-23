@@ -8,7 +8,7 @@ export default function DataList(props){
     //console.log(props.data.movies.rows);
     const list = []
     list.push(props.data.movies.rows);
-    setDatas(list);
+    setDatas(...list);
   },[props.datas])
   return (
       <Grid container direction="column">

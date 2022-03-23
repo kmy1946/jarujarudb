@@ -1,7 +1,13 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { useEffect } from "react";
 import styles from './Datalist.module.css';
 
 export default function DataList(props){
+
+  useEffect(() => {
+    console.log('props:',props.datas)
+  }, [])
+  
 
   return (
       <Grid container direction="column">

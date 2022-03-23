@@ -11,17 +11,16 @@ export async function getServerSideProps() {
   //const response = await fetch('http://localhost:3000/api/moviesdb');
   const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb');
   const data = await response.json();
-  //console.log('data:',data)
 
   return { props: { data } };
 }
 
-export default function Home({data}) {
+export default function Home({ data }) {
   const [datas, setDatas] = useState([])
 
-  useEffect(() => {
+  useEffect( async() => {
     const earnedDatas = data.movies.rows
-    //console.log(earnedDatas);
+    //console.log('earcedDatas:',earnedDatas);
     setDatas(earnedDatas);
   }, [])
   return (
@@ -38,6 +37,22 @@ export default function Home({data}) {
           <title>ジャルジャルDB</title>
         </Head>
         <TopGrid/>
+        {
+          (
+            datas.length > 0 ?
+              <>
+                <DataList
+                  datas={datas}
+                  //id={data.id} title={data.title} url={data.url} thumbnail={data.thumbnail}
+                  //views={data.views} created_at={data.created_at}
+                />
+              </>
+              :
+              <>
+              Sorry No Data...
+              </>
+          )
+        }
         <DataList
           datas={datas}
           //id={data.id} title={data.title} url={data.url} thumbnail={data.thumbnail}

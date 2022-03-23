@@ -6,7 +6,7 @@ import Layout from './components/layout';
 import DataList from './components/products/DataList';
 import { useEffect, useState } from 'react';
 import TopGrid from './components/TopGrid/TopGrid';
-
+/*
 export async function getServerSideProps() {
   const response = await fetch('http://localhost:3000/api/moviesdb');
   const data = await response.json();
@@ -14,7 +14,7 @@ export async function getServerSideProps() {
 
   return { props: { data } };
 }
-
+*/
 export default function Home() {
   const [datas, setDatas] = useState([])
   {/*

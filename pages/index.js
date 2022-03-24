@@ -8,7 +8,7 @@ import TopCategories from './components/TopPage/TopPage/TopCategories';
 
 export async function getServerSideProps() {
   //const response = await fetch('http://localhost:3000/api/moviesdb');//local
-  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb');//deployment
+  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb');//deployment
   const data = await response.json();
 
   return { props: { data } };

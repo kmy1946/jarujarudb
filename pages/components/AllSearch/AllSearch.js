@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material';
-import { SearchIcon } from '@mui/icons-material';
+import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 import styles from "./AllSearch.module.css";
 import { useCallback, useState } from 'react';

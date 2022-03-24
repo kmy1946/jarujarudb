@@ -1,13 +1,48 @@
 .all_search_searchField {
   text-align: center; 
+  margin-top: 100px;
 }
 .all_search_textfield {
   width: 80vw;
 }
 .all_search_search_button {
   text-align: center;
+  margin-bottom: 30px;
 }
 .all_search_search_button_button {
   text-align: center;
   width: 30vw;
+}
+/* free word search text style */
+
+/* tag styles */
+.all_search_tag{
+  margin: 0 auto;
+  width: 155px;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  padding: 0.2em 1.5em;
+  margin-bottom: 40px;
+  border-top: solid 1px rgb(0, 0, 0);
+  border-bottom: solid 1px rgb(0, 0, 0);
+}
+.all_search_tag:before, .all_search_tag:after{
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 1px;
+  height: -webkit-calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: rgb(0, 0, 0);
+}
+.all_search_tag:before {
+  left: 10px;
+}
+.all_search_tag:after {
+  right: 10px;
+}
+.all_search_tag p {
+  margin: 0; 
+  padding: 0;
 }

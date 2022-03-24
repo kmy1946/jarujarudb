@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Button, Divider, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 import styles from "./AllSearch.module.css";
@@ -12,10 +12,13 @@ export default function AllSearch() {
     }, [setSearchKeyword])
 
   return (
-    <div>
-      <br/>
-      <br/>
-      <div className={styles.all_search_searchField}>
+    <div className={styles.all_search_searchField}>
+      <div className={styles.all_search_tag}>
+          <p>
+            フリーワード検索
+          </p>
+      </div>
+      <div>
           <TextField
             fullWidth={false} label={"キーワード検索"}
             multiline={false}
@@ -36,6 +39,7 @@ export default function AllSearch() {
           <SearchIcon />
         </Button>
       </div>
+      <Divider/>
     </div>
   )
 }

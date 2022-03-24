@@ -1,0 +1,29 @@
+.sorts_scroll_nav::-webkit-scrollbar {
+  display:none;
+}
+
+.sorts_ul{
+  list-style-type: none;
+  padding: 0 auto;
+  text-align: center;
+}
+.sorts_list {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+.sorts_list_a {
+  display: block;
+  border: 1px solid #666;
+  border-radius: 15px;
+  color: rgb(73, 73, 73);
+  background-color: rgb(164, 211, 255);
+  padding: 3px;
+  text-decoration: none;
+  width: 100%;
+  margin: 1px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}

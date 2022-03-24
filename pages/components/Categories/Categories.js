@@ -6,10 +6,10 @@ export default function Categories() {
       <div className={styles.categories_scroll_nav}>
         <br/>
         <div className={styles.categories_tag}>
-            <p>
-              タグ検索
-            </p>
-          </div>
+          <p>
+            タグ検索
+          </p>
+        </div>
         <ul className={styles.categories_ul}>
           {
             categories.map(cat => {
@@ -24,7 +24,7 @@ export default function Categories() {
           }
         </ul>
         <br/><br/>
-        <br/><br/><hr/>
+        <br/><br/>
       </div>
   )
 }

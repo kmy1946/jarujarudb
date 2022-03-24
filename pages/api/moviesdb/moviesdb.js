@@ -1,4 +1,4 @@
-import { client } from "../../lib/movies/db";
+import { client } from "../../../lib/movies/db";
 
 const selectAll = (db, query) => {
   return new Promise((resolve, reject) => {

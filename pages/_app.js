@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
   })
 
   // TODO 正式なローディングコンポーネントにする
-  const loadingComponent = (<h2>Loading...</h2>)
+  const loadingComponent = (<h2 style={{marginTop:'200px'}}>Loading...</h2>)
   return (
     <div>
       {pageLoading && loadingComponent}

@@ -11,6 +11,7 @@ export default function Layout(props) {
   return (
     <div className={styles.container}>
       <Heading/>
+      <AllSearch/>
       <Head>
         <title>{props.title}</title>
       </Head>

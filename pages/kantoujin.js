@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import AllSearch from './components/AllSearch/AllSearch';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
@@ -25,7 +24,6 @@ export default function Kantoujin({ data }) {
       </Head>
       <main className={styles.main}>
         <div className={styles.container}>
-          <AllSearch/>
           <Layout header='ジャルジャルDB'>
           
           <br/>

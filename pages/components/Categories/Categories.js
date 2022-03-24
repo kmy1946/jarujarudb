@@ -1,5 +1,6 @@
 import styles from "./Categories.module.css";
 import categories from "./Categories.json";
+import Link from "next/link";
 
 export default function Categories() {
   return (
@@ -15,9 +16,12 @@ export default function Categories() {
             categories.map(cat => {
               return (
                 <li className={styles.categories_list} key={cat.id}>
-                  <a href={cat.link} rel="noreferrer" target="_blank" className={styles.categories_list_a}>
-                    {cat.title}
-                  </a>
+                  <Link href={cat.link}  rel="noreferrer" target="blank">
+                    <p className={styles.categories_list_a}>
+                      {cat.title}
+                    </p>
+                      
+                  </Link>
                 </li>
               )
             })

@@ -11,7 +11,7 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = client;
-  const movies = await selectAll(db, 'Select * from movie ORDER BY created_at limit 16');
+  const movies = await selectAll(db, 'Select * from movie ORDER BY created_at DESC limit 16');
   //db.end();
 
   res.status(200).json({ movies });

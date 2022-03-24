@@ -1,6 +1,6 @@
 import { client } from "../../../lib/movies/db";
 
-const selectAll = (db, query) => {
+const selectAniv2 = (db, query) => {
   return new Promise((resolve, reject) => {
     client.query(query, (err, rows) => {
       if (err) return reject(err);
@@ -11,8 +11,8 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = client;
-  const movies = await selectAll(db, 'Select * from movie ORDER BY created_at limit 16');
-  //db.end();
+  const movies = await selectAniv2(db, `Select * from movie where title LIKE '%２億回%'`);
+  db.end();
 
   res.status(200).json({ movies });
 }

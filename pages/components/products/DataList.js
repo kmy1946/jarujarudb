@@ -4,6 +4,7 @@ import styles from './Datalist.module.css';
 
 export default function DataList(props){
   const [datas, setDatas] = useState([]);
+
   useEffect( () => {
     //console.log(props.data.movies.rows);
     const list = []

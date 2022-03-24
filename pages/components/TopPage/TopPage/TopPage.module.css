@@ -1,5 +1,5 @@
 /* TopCategories styles */
-.grid {
+.topcategories__grid {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,8 @@
   background-color: rgb(235, 235, 235);
 }
 
-.card {
+.topcategories__card {
+  position: relative;
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
@@ -24,19 +25,24 @@
   background-color: white;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.topcategories__card:hover,
+.topcategories__card:focus,
+.topcategories__card:active {
   color: #0070f3;
   border-color: #0070f3;
 }
 
-.card h2 {
+.topcategories__strong {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 }
 
-.card p {
+.topcategories__link {
+  position: absolute;
+  display: block;
+}
+
+.topcategories__card p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -44,7 +50,7 @@
 
 
 @media (max-width: 600px) {
-  .grid {
+  .topcategories__grid {
     width: 100%;
     flex-direction: column;
   }

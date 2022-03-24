@@ -1,16 +1,25 @@
 import styles from "./TopPage.module.css";
 import datas from "./TopCategories.json";
+import Link from "next/link";
 export default function TopCategories() {
   return (
-        <div className={styles.grid}>
-          {datas.map(data=> {
-            return (
-              <a href={data.link} key={data.id} className={styles.card} rel="noreferrer" target='_blank'>
-                <h2>{data.title} &rarr;</h2>
-                <p>{data.description}</p>
-              </a>
-            )
-          })}
+        <div className={styles.topcategories__grid}>
+          {
+            datas.map(data=> {
+              return (
+                <div className={styles.topcategories__card}>
+                  <strong className={styles.topcategories__strong}>
+                    {data.title} &rarr;
+                  </strong>
+                  <Link href={data.link} key={data.id} className={styles.topcategories__link}>
+                    <p>
+                      {data.description}
+                    </p>
+                  </Link>
+                </div>
+              )
+            })
+          }
         </div>
   )
 }

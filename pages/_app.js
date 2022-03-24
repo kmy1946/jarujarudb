@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import '../styles/globals.css';
+import Loading from "./components/UIkits/Loading";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -22,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   })
 
   // TODO 正式なローディングコンポーネントにする
-  const loadingComponent = (<h2 style={{marginTop:'200px'}}>Loading...</h2>)
+  const loadingComponent = (<Loading/>)
   return (
     <div>
       {pageLoading && loadingComponent}

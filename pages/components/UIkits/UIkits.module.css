@@ -1,0 +1,8 @@
+.uikits_circularProgress {
+  margin-top: 200px;
+  text-align: center;
+}
+.uikits_circularProgress__text {
+  font-size: 30px;
+  color: rgb(60, 255, 0);
+}

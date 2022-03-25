@@ -19,8 +19,8 @@ export async function getServerSideProps(context) {
     method: "GET",
     body: page
   }
-  const response = await fetch('http://localhost:3000/api/moviesdb/moviesdb');//local
-  //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb');//deployment
+  //const response = await fetch('http://localhost:3000/api/moviesdb/moviesdb');//local
+  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb');//deployment
   const data = await response.json();
 
   return {

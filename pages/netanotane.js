@@ -82,13 +82,7 @@ export default function Netanotane({ data }) {//
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
               return (
-                <><Grid item xs={12} sm={3} >
-                  <DatasList
-                    url={data.url} title={data.title} views={data.views} thumbnail={data.thumbnail}
-                    created_at={data.created_at}
-                    //custom text _etc.
-                    gotolink={gotolink} viewstext={viewstext}
-                  /></Grid>
+                <>
                 </>
                 )}))}
                 

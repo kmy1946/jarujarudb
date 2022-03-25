@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   const PAGE_NUM = 8;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
   //count(*) as count
-  const query_ = `Select row_number() over() as no,*,
+  const query_ = `Select *,
                   COUNT(*) OVER () AS count
                   from movie "WITH" (NOLOCK)
                   ORDER BY created_at ASC

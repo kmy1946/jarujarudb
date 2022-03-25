@@ -28,10 +28,10 @@ export default function Netanotane({ data }) {//
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
-    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/top?page=${page}');//deployment
+    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}');//deployment
     //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}`).catch((error) => console.log(error))
     const data = await response.json();
-
+    console.log(data)
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
   }

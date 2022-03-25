@@ -71,7 +71,7 @@ export default function Netanotane({ data }) {//
         <Grid container className={styles.datalist}>
                 
           {netanotaneList.length > 0 && (
-            netanotaneList.map(data => {
+            netanotaneList.map((data, index) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
@@ -80,7 +80,7 @@ export default function Netanotane({ data }) {//
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
               return (
-                <><Grid item xs={12} sm={3} key={data.id}>
+                <><Grid item xs={12} sm={3} key={index}>
                   <DatasList
                     url={data.url} title={data.title} views={data.views} thumbnail={data.thumbnail}
                     created_at={data.created_at}

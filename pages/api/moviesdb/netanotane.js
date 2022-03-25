@@ -34,7 +34,7 @@ export default async function handler(req, res) {
   res.setHeader('Content-Type', 'application/json')
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.status(200).json( netanotane_list_list );
-  console.log('\n\n\n',netanotane_list_list,'\n\n\n')
+  //console.log('\n\n\n',netanotane_list_list,'\n\n\n')
   //res.end(JSON.stringify(netanotane_list_list));
   //console.log(JSON.stringify(netanotane_list_list))
   //console.log('JSON.stringfy(dafsdf)\n',JSON.stringify(book_list_list))

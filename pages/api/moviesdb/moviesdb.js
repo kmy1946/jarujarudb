@@ -13,7 +13,7 @@ const selectAll_ = (db, query) => {
 export default async function handler(req, res) {
   const db = pool;
   const pages = 4
-  
+  //const movies = await selectAll_(db, `Select * from movie ORDER BY created_at limit ${pages}`);
   const movies = await selectAll_(db, `Select * from movie ORDER BY created_at limit ${pages}`);
 
   console.log('\ntotalCount:',pool.totalCount,'\n')

@@ -61,7 +61,7 @@ export default function Top() {
         <Grid container className={styles.datalist}>
                 
           {bookList.length > 0 && (
-            bookList.map(data => {
+            bookList.map((data) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
@@ -70,7 +70,8 @@ export default function Top() {
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
               return (
-                <><Grid item xs={12} sm={3} key={data.id}>
+                <>
+                <Grid item xs={12} sm={3} key={data.no}>
                   <DatasList
                     url={data.url} title={data.title} views={data.views} thumbnail={data.thumbnail}
                     created_at={data.created_at}

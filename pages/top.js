@@ -28,8 +28,8 @@ export default function Top() {
 
   //取得データのセットと総データ件数をセットする
   const setBookListAPI = async(page) => {
-    //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/productdetail');//deployment
-    const response = await fetch(`http://localhost:3000/api/moviesdb/productdetail?page=${page}`);
+    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/top');//deployment
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/top?page=${page}`);
     const data = await response.json();
 
     console.log('data:\n',data)

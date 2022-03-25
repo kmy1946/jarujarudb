@@ -3,17 +3,9 @@ import { useEffect, useState } from "react";
 import styles from './Datalist.module.css';
 
 export default function FeaturedList(props){
-  const [datas, setDatas] = useState([]);
-
-  useEffect( () => {
-    //console.log(props.data.movies.rows);
-    const list = []
-    list.push(props.data);
-    setDatas(...list);
-    //console.log(list)
-  },[]);//props.datas
 
   //console.log(props.netanotanes)
+  //使ってないコンポーネントindexからデータを渡す
 
   return (
       

@@ -1,41 +1,36 @@
-import { Button } from '@mui/material';
+import { Button, Grid, Card, Pagination as MuiPagination, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Home.module.css';
+import stylesDataList from './components/products/Datalist.module.css';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import FeaturedList from './components/products/FeaturedList';
 import TopCategories from './components/TopPage/TopPage/TopCategories';
 
-
-
-import { Grid, Pagination as MuiPagination } from '@mui/material';
 import { withStyles } from '@mui/styles';
-import DatasList from './components/products/DatasList';
 
 
 export default function Netanotane({ data }) {//
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
-  const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
+  const [netanotaneList, setNetanotaneList] = useState([]);
 
   useEffect(async () => {
     setNetanotaneListAPI(page);
   }, []);
-
   const clickPage = (e, page) => {
     setPage(page);
     setNetanotaneListAPI(page);
   }
+  useCallback(() => {clickPage(e, page)},[setPage, setCount, setNetanotaneList])
+  
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
     const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/top?page=${page}');//deployment
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/top?page=${page}`).catch((error) => console.log(error))
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}`).catch((error) => console.log(error))
     const data = await response.json();
-
-    //console.log('data:\n',data)
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
@@ -62,30 +57,44 @@ export default function Netanotane({ data }) {//
 
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
-                
           {netanotaneList.length > 0 && (
-            netanotaneList.map((data, index) => {
+            netanotaneList.map((data) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
               const urlv = result[0]
-              
+
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
               return (
-                <><Grid item xs={12} sm={3} key={index}>
-                  <FeaturedList
-                    url={data.url} title={data.title} views={data.views} thumbnail={data.thumbnail}
-                    created_at={data.created_at}
-                    //custom text _etc.
-                    gotolink={gotolink} viewstext={viewstext}
-                  /></Grid>
+                <>
+                <Grid item xs={12} sm={3} key={data.no}>
+                  <Card className={stylesDataList.datalist_card}>
+                    <CardActionArea href={data.gotolink} target='_blank'>
+                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
+                      <CardContent style={{ height:"170px" }}>
+                      <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" component="p">
+                        {data.detail}
+                      </Typography>
+                      <Typography variant='body2' component="p" className={stylesDataList.datalist_created_at}>
+                        {data.created_at}
+                      </Typography>
+                      <Typography variant='body2' component="p" className={stylesDataList.datalist_views}>
+                        {data.views}{data.viewstext}
+                      </Typography>
+                      </CardContent>
+                    
+                      <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
                 </>
                 )}))}
-                
-                </Grid>
-                </Grid>
-
+          </Grid>
+          </Grid>
           <div style={{marginTop: "50px", textAlign: "center"}}>
             <Pagination
               count={count}//総ページ数

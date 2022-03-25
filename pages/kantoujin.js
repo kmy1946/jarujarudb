@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.css';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import DataList from './components/products/DataList';
 import TopCategories from './components/TopPage/TopPage/TopCategories';
 
 export async function getServerSideProps() {

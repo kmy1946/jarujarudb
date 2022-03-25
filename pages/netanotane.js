@@ -7,7 +7,7 @@ import AllSearch from './components/AllSearch/AllSearch';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import DataList from './components/products/DataList';
+import DataList from './components/products/FeaturedList';
 import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
 import DatasList from './components/products/DatasList';
@@ -38,8 +38,8 @@ export default function Netanotane({ data }) {//
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
-    //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
-    const response = await fetch(`http://localhost:3000/api/moviesdb/netanotane?page=${page}`).catch((error) => console.log(error))
+    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/netanotane?page=${page}`).catch((error) => console.log(error))
     const data = await response.json();
 
     //console.log('data:\n',data)

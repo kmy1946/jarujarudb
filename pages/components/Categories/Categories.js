@@ -15,7 +15,7 @@ export default function Categories() {
           {
             categories.map(cat => {
               return (
-                <li className={styles.categories_list} key={cat.id}>
+                <li key={cat.id} className={styles.categories_list}>
                   <Link href={cat.link}>
                     <p className={styles.categories_list_a}>
                       {cat.title}

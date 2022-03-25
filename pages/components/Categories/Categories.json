@@ -18,16 +18,16 @@
     "style":"kantoujin"
   },
   {
-    "id":"0004",
-    "title":"面接",
-    "link":"mensetsu",
-    "style":"mensetu"
-  },
-  {
     "id":"0005",
     "title":"南",
     "link":"minamikun",
     "style":"minamikun"
+  },
+  {
+    "id":"0004",
+    "title":"面接",
+    "link":"mensetsu",
+    "style":"mensetu"
   },
   {
     "id":"0006",

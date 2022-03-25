@@ -2,47 +2,36 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid
 import { useEffect, useState } from "react";
 import styles from './Datalist.module.css';
 
-export default function DataList(props){
+export default function FeaturedList(props){
   const [datas, setDatas] = useState([]);
 
   useEffect( () => {
     //console.log(props.data.movies.rows);
     const list = []
-    list.push(props.data.movies.rows);
+    list.push(props.data);
     setDatas(...list);
     //console.log(list)
   },[]);//props.datas
 
+  //console.log(props.netanotanes)
+
   return (
-      <Grid container direction="column">
-        <Grid container className={styles.datalist}>
-          {datas.length > 0 && (
-            datas.map(data => {
-              const beforestr = data.url
-              const regex = /(?<=v=)(.*)/
-              const result = beforestr.match(regex);
-              const urlv = result[0]
-              
-              let gotolink = 'https://www.youtube.com/watch?v='+urlv
-              const viewstext = ' 回視聴'
-              
-              return(
-                <Grid item xs={12} sm={3} key={data.id}>
+      
                   <Card className={styles.datalist_card}>
-                    <CardActionArea href={gotolink} target='_blank'>
-                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
+                    <CardActionArea href={props.gotolink} target='_blank'>
+                      <CardMedia style={{ height: "170px" }} image={props.thumbnail} />
                       <CardContent style={{ height:"170px" }}>
                       <Typography variant="body2" component="p" className={styles.datalist_title}>
-                        {data.title}
+                        {props.title}
                       </Typography>
                       <Typography variant="body2" component="p">
-                        {data.detail}
+                        {props.detail}
                       </Typography>
                       <Typography variant='body2' component="p" className={styles.datalist_created_at}>
-                        {data.created_at}
+                        {props.created_at}
                       </Typography>
                       <Typography variant='body2' component="p" className={styles.datalist_views}>
-                        {data.views}{viewstext}
+                        {props.views}{props.viewstext}
                       </Typography>
                       </CardContent>
                     
@@ -51,13 +40,6 @@ export default function DataList(props){
                       </CardActions>
                     </CardActionArea>
                   </Card>
-                </Grid>
-              )
-              }
-              )
-          )}
 
-        </Grid><br/><br/><br/>
-      </Grid>
   )
 }

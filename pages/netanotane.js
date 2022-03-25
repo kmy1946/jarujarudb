@@ -38,8 +38,8 @@ export default function Netanotane({ data }) {//
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
-    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/netanotane?page=${page}`).catch((error) => console.log(error))
+    //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
+    const response = await fetch(`http://localhost:3000/api/moviesdb/netanotane?page=${page}`).catch((error) => console.log(error))
     const data = await response.json();
 
     //console.log('data:\n',data)
@@ -67,8 +67,6 @@ export default function Netanotane({ data }) {//
           <Layout header='ジャルジャルDB'>
             <br/>
 
-            <ul>
-          </ul>
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
                 
@@ -94,8 +92,8 @@ export default function Netanotane({ data }) {//
                 
                 </Grid>
                 </Grid>
-          <div style={{marginTop: "50px", textAlign: "center"}}>
 
+          <div style={{marginTop: "50px", textAlign: "center"}}>
             <Pagination
               count={count}//総ページ数
               color="primary"

@@ -10,10 +10,10 @@ export default function DatasList(props){
     const list = []
     list.push(props.data);
     setDatas(...list);
-    console.log(list)
+    //console.log(list)
   },[]);//props.datas
 
-  console.log(props.netanotanes)
+  //console.log(props.netanotanes)
 
   return (
       
@@ -36,7 +36,7 @@ export default function DatasList(props){
                       </CardContent>
                     
                       <CardActions>
-                        <Button size="small" href={props.gotolink} target='_blank' className={styles.datalist_gotolink}>動画をみる</Button>
+                        <Button size="small" className={styles.datalist_gotolink}>動画をみる</Button>
                       </CardActions>
                     </CardActionArea>
                   </Card>

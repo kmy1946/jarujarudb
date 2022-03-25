@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { client, pool } from "../../../lib/movies/db";
+import { pool } from "../../../lib/movies/db";
 
 /* pooling */
 const selectAll_ = (db, query) => {
@@ -17,11 +16,9 @@ export default async function handler(req, res) {
   
   const movies = await selectAll_(db, `Select * from movie ORDER BY created_at limit ${pages}`);
 
-  console.log('\n\ntotalCount:',pool.totalCount,'\n\n\n')
-  console.log('\n\nidleCount:',pool.idleCount,'\n\n\n')
-  console.log('\n\nwaitingCount:',pool.waitingCount,'\n\n\n')
-  
-  
+  console.log('\ntotalCount:',pool.totalCount,'\n')
+  console.log('\nidleCount:',pool.idleCount,'\n')
+  console.log('\nwaitingCount:',pool.waitingCount,'\n')
 
   //console.log(res.status(200).json({ movies }))
   res.status(200).json({ movies });

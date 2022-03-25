@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { client } from "../../../lib/movies/db";
 
 const selectAll = (db, query) => {
@@ -11,8 +12,11 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = client;
-  const movies = await selectAll(db, 'Select * from movie ORDER BY created_at limit 16');
-  //db.end();
+  const pages = 4
+  
+  const movies = await selectAll(db, `Select * from movie ORDER BY created_at limit ${pages}`);
+  db.end();
 
+  //console.log(res.status(200).json({ movies }))
   res.status(200).json({ movies });
 }

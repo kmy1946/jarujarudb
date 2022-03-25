@@ -7,15 +7,15 @@ export default function TopCategories() {
           {
             datas.map(data=> {
               return (
-                <div className={styles.topcategories__card}>
+                <div className={styles.topcategories__card} key={data.id}>
                   <strong className={styles.topcategories__strong}>
                     {data.title} &rarr;
                   </strong>
-                  <Link href={data.link} key={data.id} className={styles.topcategories__link}>
-                    <p>
-                      {data.description}
+                  
+                    <p><Link href={data.link} key={data.id} className={styles.topcategories__link}>
+                      {data.description}</Link>
                     </p>
-                  </Link>
+                  
                 </div>
               )
             })

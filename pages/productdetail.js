@@ -42,7 +42,7 @@ export default function ProductDetail() {
       <ul>
         {bookList.length > 0 && (
           bookList.map(book => (
-            <li>{book.title}</li>
+            <li key={book.id}>{book.title}</li>
           )
         ))}
       </ul>

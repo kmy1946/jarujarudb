@@ -3,19 +3,19 @@
     "id":"0001",
     "title":"このサイトについて",
     "description":"2000本以上あるジャルジャルタワーの動画を分類しています。",
-    "link":"about"
+    "link":"/about"
   },
   {
     "id":"0002",
     "title":"作成者について",
     "description":"",
-    "link":"aboutgenerator"
+    "link":"/aboutgenerator"
   },
   {
     "id":"0003",
     "title":"ネタのタネだけ表示",
     "description":"ネタのタネの動画だけを表示します。",
-    "link":"netanotane"
+    "link":"/netanotane"
   }
 
 ]

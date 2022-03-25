@@ -47,7 +47,7 @@ export default function DataList(props){
                       </CardContent>
                     
                       <CardActions>
-                        <Button size="small" href={gotolink} target='_blank' className={styles.datalist_gotolink}>動画をみる</Button>
+                        <Button size="small" className={styles.datalist_gotolink}>動画をみる</Button>
                       </CardActions>
                     </CardActionArea>
                   </Card>

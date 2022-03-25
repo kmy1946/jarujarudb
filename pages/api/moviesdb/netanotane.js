@@ -1,8 +1,8 @@
-import { client } from "../../../lib/movies/db";
+import { pool } from "../../../lib/movies/db";
 
 const selectAll = (db, query) => {
   return new Promise((resolve, reject) => {
-    client.query(query, (err, rows) => {
+    pool.query(query, (err, rows) => {
       if (err) return reject(err);
       return resolve(rows);
     });
@@ -10,7 +10,7 @@ const selectAll = (db, query) => {
 };
 
 export default async function handler(req, res) {
-  const db = client;
+  const db = pool;
 
   const PAGE_NUM = 8;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
@@ -33,7 +33,9 @@ export default async function handler(req, res) {
   res.statusCode = 200
   res.setHeader('Content-Type', 'application/json')
   res.setHeader('Access-Control-Allow-Origin', '*')
-  res.end(JSON.stringify(netanotane_list_list));
+  res.status(200).json( netanotane_list_list );
+  console.log('\n\n\n',netanotane_list_list,'\n\n\n')
+  //res.end(JSON.stringify(netanotane_list_list));
   //console.log(JSON.stringify(netanotane_list_list))
   //console.log('JSON.stringfy(dafsdf)\n',JSON.stringify(book_list_list))
 }

@@ -39,13 +39,7 @@ export default function ProductDetail() {
 
   return (
     <>
-      <ul>
-        {bookList.length > 0 && (
-          bookList.map(book => (
-            <li key={book.id}>{book.title}</li>
-          )
-        ))}
-      </ul>
+      
       
       <div style={{marginTop: "50px", textAlign: "center"}}>
 

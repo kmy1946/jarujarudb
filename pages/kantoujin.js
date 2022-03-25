@@ -27,9 +27,7 @@ export default function Kantoujin({ data }) {
           <Layout header='ジャルジャルDB'>
           
           <br/>
-            <DataList
-              data={data}
-            />
+            
             <TopCategories/>
           </Layout>
         </div>

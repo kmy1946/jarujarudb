@@ -11,6 +11,7 @@ export default function Categories() {
             タグ検索
           </p>
         </div>
+        <br/>
         <ul className={styles.categories_ul}>
           {
             categories.map(cat => {

@@ -11,7 +11,6 @@ export default function TopCategories() {
                   <strong className={styles.topcategories__strong}>
                     {data.title} &rarr;
                   </strong>
-                  
                     <p><Link href={data.link} key={data.id} className={styles.topcategories__link}>
                       {data.description}</Link>
                     </p>

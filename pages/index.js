@@ -1,5 +1,6 @@
 import { Button, Grid, Card, Pagination as MuiPagination, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Home.module.css';
 import stylesDataList from './components/products/Datalist.module.css';
@@ -28,10 +29,10 @@ export default function Netanotane({ data }) {//
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
-    //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb');//deployment
-    const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}`).catch((error) => console.log(error))
+    const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/moviesdb');//deployment
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}`).catch((error) => console.log(error))
     const data = await response.json();
-    console.log(data)
+    //console.log(data)
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
   }
@@ -71,11 +72,14 @@ export default function Netanotane({ data }) {//
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={data.gotolink} target='_blank'>
+                      {/*
                       <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
+                      */}
+                      <Image src={data.thumbnail} width={462} height={260} />
                       <CardContent style={{ height:"170px" }}>
                       <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
                         {data.title}
-                      </Typography>
+                       </Typography>
                       <Typography variant="body2" component="p">
                         {data.detail}
                       </Typography>

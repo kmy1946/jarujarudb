@@ -1,5 +1,6 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import Image from "next/image"
 import styles from './Datalist.module.css';
 
 export default function FeaturedList(props){

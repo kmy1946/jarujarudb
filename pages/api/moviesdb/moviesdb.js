@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const query_ = `Select row_number() over() as no, *,
                   COUNT(*) OVER () AS count
                   from movie "WITH" (NOLOCK)
-                  ORDER BY created_at ASC
+                  ORDER BY created_at DESC
                   limit ${PAGE_NUM}
                   OFFSET ${PAGE_NUM*offset_coefficient}`
   //全て、昇順、PAGE_NUM制限、offset_coefficient

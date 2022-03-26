@@ -14,43 +14,43 @@
   {
     "id":"0003",
     "title":"ネタのタネ",
-    "link":"netanotane",
+    "link":"/netanotane",
     "style":"netanotane"
   },
   {
     "id":"0004",
     "title":"関東人",
-    "link":"kantoujin",
+    "link":"/kantoujin",
     "style":"kantoujin"
   },
   {
     "id":"0005",
     "title":"南",
-    "link":"minamikun",
+    "link":"/minamikun",
     "style":"minamikun"
   },
   {
     "id":"0006",
     "title":"面接",
-    "link":"mensetsu",
+    "link":"/mensetsu",
     "style":"mensetu"
   },
   {
     "id":"0007",
     "title":"漫才ネタ",
-    "link":"manzaineta",
+    "link":"/manzaineta",
     "style":"manzaineta"
   },
   {
     "id":"0008",
     "title":"コントネタ",
-    "link":"kontoneta",
+    "link":"/kontoneta",
     "style":"kontoneta"
   },
   {
     "id":"0009",
     "title":"先生",
-    "link":"senseineta",
+    "link":"/senseineta",
     "style":"senseineta"
   }
 ]

@@ -1,6 +1,7 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import styles from './Datalist.module.css';
+import Image from 'next/image';
 
 export default function DatasList(props){
   const [datas, setDatas] = useState([]);
@@ -34,7 +35,6 @@ export default function DatasList(props){
                         {props.views}{props.viewstext}
                       </Typography>
                       </CardContent>
-                    
                       <CardActions>
                         <Button size="small" className={styles.datalist_gotolink}>動画をみる</Button>
                       </CardActions>

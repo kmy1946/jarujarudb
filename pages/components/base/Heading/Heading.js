@@ -1,9 +1,12 @@
-import styles from './Header.module.css';
+import styles from '../../assets/Heading/Header.module.css';
 import Link from "next/link";
 import { AppBar, Toolbar } from "@mui/material";
 import ToSearchButton from '../../UIkits/ToSearchButton';
+import { useRouter } from 'next/router';
 
 export default function Heading() {
+  const router = useRouter();
+  const urlHidden = router.pathname.split('/')[1]
   return (
     <div className={styles.header_root}>
         <AppBar className={styles.header_menuBar}>
@@ -21,7 +24,15 @@ export default function Heading() {
           </Toolbar>
         </AppBar>
         <div style={{marginTop:'50px'}}>
-          <ToSearchButton/>
+          {
+            urlHidden=='search' ?
+            <div style={{display:'none'}}>
+              <ToSearchButton/>
+            </div>
+            :
+            <ToSearchButton/>
+          }
+          
         </div>
     </div>
   )

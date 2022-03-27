@@ -28,7 +28,6 @@ export default async function handler(req, res) {
   const netanotane_list = await selectAll(db, query_);
 
   const netanotaneDatas = netanotane_list.rows[0]['count']//１つ目から総データ数取得
-  console.log(netanotane_list)
 
   netanotane_list["count"] = Math.ceil(netanotaneDatas / PAGE_NUM)//Math.ceil(book_list["count"] / PAGE_NUM)//総ページ数
   //countに計算結果を代入

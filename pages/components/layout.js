@@ -4,7 +4,6 @@ import Header from "./base/header";
 import Heading from "./base/Heading/Heading";
 import TopPageTitle from "./TopPage/TopPageTitle.js/TopPageTitle";
 import Categories from "./Categories/Categories";
-import AllSearch from "./AllSearch/AllSearch";
 
 export default function Layout(props) {
   return (

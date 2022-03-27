@@ -1,13 +1,7 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import Image from "next/image"
-import styles from './Datalist.module.css';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import styles from '../../../styles/Datalist.module.css';
 
 export default function FeaturedList(props){
-
-  //console.log(props.netanotanes)
-  //使ってないコンポーネントindexからデータを渡す
-
   return (
       
                   <Card className={styles.datalist_card}>

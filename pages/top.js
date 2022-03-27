@@ -3,7 +3,7 @@ import { Button, Card, CardActionArea, CardActions, CardContent, Grid, Paginatio
 import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
-import stylesDataList from './components/products/Datalist.module.css';
+import stylesDataList from '../styles/Datalist.module.css';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
@@ -11,17 +11,7 @@ import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-/*
-export async function getServerSideProps(context) {
-  //const response = await fetch('http://localhost:3000/api/moviesdb');//local
-  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
-  const data = await response.json();
-
-  return { props: { data } };
-}
-*/
-
-export default function Netanotane() {//{ data }
+export default function Netanotane() {
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト

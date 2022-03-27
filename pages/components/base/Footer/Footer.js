@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
-import styles from "./Footer.module.css";
+import styles from "../../../../styles/Footer.module.css";
 import FooterArchive from "./FooterArchive";
 import FooterCategory from "./FooterCategory";
 

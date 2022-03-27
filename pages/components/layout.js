@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from './layout.module.css';
+import styles from '../../styles/layout.module.css';
 import Header from "./base/header";
 import Heading from "./base/Heading/Heading";
 import TopPageTitle from "./TopPage/TopPageTitle.js/TopPageTitle";

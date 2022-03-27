@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { useState } from "react";
-import styles from "./Footer.module.css";
+import styles from "../../../../styles/Footer.module.css";
 
 export default function FooterCategory () {
   const selectMenu = (event, path) => {

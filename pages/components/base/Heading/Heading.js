@@ -1,4 +1,4 @@
-import styles from '../../assets/Heading/Header.module.css';
+import styles from '../../../../styles/Header.module.css';
 import Link from "next/link";
 import { AppBar, Toolbar } from "@mui/material";
 import ToSearchButton from '../../UIkits/ToSearchButton';

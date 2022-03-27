@@ -1,4 +1,4 @@
-import styles from "../assets/categories/Categories.module.css";
+import styles from "../../../styles/Categories.module.css";
 import categories from "./Categories.json";
 import Link from "next/link";
 import { Button } from "@mui/material";

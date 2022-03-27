@@ -4,7 +4,7 @@ import { withStyles } from '@mui/styles';
 import SearchIcon from '@mui/icons-material/Search';
 
 import styles from '../styles/Home.module.css';
-import stylesDataList from './components/products/Datalist.module.css';
+import stylesDataList from '../styles/Datalist.module.css';
 import stylesSearch from './components/assets/search/AllSearch.module.css';
 
 import Footer from './components/base/Footer/Footer';

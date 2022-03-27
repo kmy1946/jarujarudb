@@ -1,5 +1,5 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import styles from '../assets/datalist/Datalist.module.css';
+import styles from '../../../styles/Datalist.module.css';
 
 export default function DatasList(props){
   return (

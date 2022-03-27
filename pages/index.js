@@ -4,28 +4,14 @@ import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from './components/products/Datalist.module.css';
-import AllSearch from './components/AllSearch/AllSearch';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import DataList from './components/products/FeaturedList';
 import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
-import DatasList from './components/products/DatasList';
 import Image from 'next/image';
-import ToSearchButton from './components/UIkits/ToSearchButton';
 
-/*
-export async function getServerSideProps(context) {
-  //const response = await fetch('http://localhost:3000/api/moviesdb');//local
-  const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
-  const data = await response.json();
-
-  return { props: { data } };
-}
-*/
-
-export default function Netanotane() {//{ data }
+export default function Netanotane() {
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
@@ -42,7 +28,7 @@ export default function Netanotane() {//{ data }
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
     const tag='ネタのタネ';
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`);//deployment
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}&tag=${tag}`)
     const data = await response.json();
 
@@ -87,9 +73,6 @@ export default function Netanotane() {//{ data }
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
-                      {/*
-                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
-                      */}
                       <Image src={data.thumbnail} width={462} height={260} />
                       <Typography variant="body2" component="p" className={stylesDataList.datalist_duration}>
                         {data.duration}
@@ -121,7 +104,7 @@ export default function Netanotane() {//{ data }
             <Pagination
               count={count}//総ページ数
               color="primary"
-              onChange={clickPage}//変更されたときに走る関数。第2引数にページ番号が入る
+              onChange={clickPage}
               page={page}
             />
           </div>

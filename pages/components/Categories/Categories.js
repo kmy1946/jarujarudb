@@ -18,13 +18,12 @@ export default function Categories() {
               return (
                 <li key={cat.id} className={styles.categories_list}>
                   <Link href={cat.link}>
-                    <Button
+                    <button
                       variant="contained"
                       className={styles.categories_list_button}
-                      style={{backgroundColor:'black'}}
                     >
                       {cat.title}
-                    </Button>
+                    </button>
                       
                   </Link>
                 </li>

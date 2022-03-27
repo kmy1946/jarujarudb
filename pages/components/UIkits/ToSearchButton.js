@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import Link from "next/link";
 import SearchIcon from '@mui/icons-material/Search';
-import styles from "./UIkits.module.css";
+import styles from "../../../styles/UIkits.module.css";
 
 export default function ToSearchButton() {
   return (

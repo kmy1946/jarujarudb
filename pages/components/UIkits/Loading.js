@@ -1,5 +1,5 @@
 import { CircularProgress } from '@mui/material';
-import styles from "./UIkits.module.css";
+import styles from "../../../styles/UIkits.module.css";
 
 export default function Loading() {
   return (

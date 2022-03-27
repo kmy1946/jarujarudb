@@ -19,6 +19,7 @@ export default function Footer() {
           <FooterCategory/>
         </Grid>
       </Grid>
+      <br/><br/>
       <Container> 
         <Typography>
         </Typography>

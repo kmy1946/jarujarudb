@@ -7,9 +7,37 @@ import { useCallback, useState } from 'react';
 export default function AllSearch() {
   const [searchKeyword, setSearchKeyword] = useState("")
 
-    const inputSearchKeyword = useCallback((event) => {
+  const inputSearchKeyword = useCallback((event) => {
         setSearchKeyword(event.target.value)
-    }, [setSearchKeyword])
+  }, [setSearchKeyword])
+
+
+
+  const [page, setPage] = useState(1);//ページ番号
+  const [count, setCount] = useState();//総ページ数
+  const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
+
+  useEffect(async () => {
+    setNetanotaneListAPI(page);
+  }, []);
+
+  const clickPage = (e, page) => {
+    setPage(page);
+    setNetanotaneListAPI(page);
+  }
+
+  //取得データのセットと総データ件数をセットする
+  const setNetanotaneListAPI = async(page) => {
+    //const response = await fetch('https://jarujarudb.vercel.app/api/moviesdb/netanotane');//deployment
+    const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&keyword=${searchKeyword}`)
+    const data = await response.json();
+
+    setNetanotaneList(data.rows);//.rows);//取得データ
+    setCount(data.count);//総データ件数
+  }
+
+
+
 
   return (
     <div className={styles.all_search_searchField}>

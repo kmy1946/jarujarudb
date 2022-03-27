@@ -2,6 +2,23 @@
   padding: 7px;
   border-radius: 0px;
 }
+.datalist_card {
+  position: relative;
+  margin: 2px;
+}
+.datalist_duration {
+  position: absolute;
+
+  right: 0;
+  margin-top: -30px;
+  margin-right: 5px;
+  margin-bottom: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgb(41, 41, 41);
+  color: white;
+}
+
 .datalist_title {
   position: relative;
   max-height: 150px;
@@ -15,9 +32,6 @@
   text-overflow: ellipsis;
   white-space: normal;
   overflow: hidden;
-}
-.datalist_card {
-  margin: 2px;
 }
 .datalist_created_at {
   margin: 10px;

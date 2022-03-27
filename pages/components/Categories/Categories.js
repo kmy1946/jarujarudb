@@ -1,11 +1,11 @@
 import styles from "./Categories.module.css";
 import categories from "./Categories.json";
 import Link from "next/link";
+import { Button } from "@mui/material";
 
 export default function Categories() {
   return (
       <div className={styles.categories_scroll_nav}>
-        <br/>
         <div className={styles.categories_tag}>
           <p>
             タグ検索
@@ -18,9 +18,12 @@ export default function Categories() {
               return (
                 <li key={cat.id} className={styles.categories_list}>
                   <Link href={cat.link}>
-                    <p className={styles.categories_list_a}>
+                    <Button
+                      variant="contained"
+                      className={styles.categories_list_button}
+                    >
                       {cat.title}
-                    </p>
+                    </Button>
                       
                   </Link>
                 </li>

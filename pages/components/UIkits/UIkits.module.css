@@ -6,3 +6,18 @@
   font-size: 30px;
   color: rgb(60, 255, 0);
 }
+/* tokeyword */
+.tokeyword_group {
+  text-align: right;
+  margin-right: 5px;
+}
+.tokeyword {
+  background-color: rgb(0, 183, 255);
+  color: rgb(26, 26, 26);
+  font-weight: 600;
+}
+.tokeyword:hover {
+  background-color: rgb(67, 211, 255);
+  color: rgb(26, 26, 26);
+  font-weight: 800;
+}

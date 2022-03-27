@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import Link from "next/link";
 import { AppBar, Toolbar } from "@mui/material";
+import ToSearchButton from '../../UIkits/ToSearchButton';
 
 export default function Heading() {
   return (
@@ -19,6 +20,9 @@ export default function Heading() {
             </div>
           </Toolbar>
         </AppBar>
+        <div style={{marginTop:'50px'}}>
+          <ToSearchButton/>
+        </div>
     </div>
   )
 }

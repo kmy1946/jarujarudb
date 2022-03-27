@@ -11,10 +11,10 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = pool;
-  const keyword = 'ジャルジャル';
-
-  const ORDER_BY = 'ASC';
-  const PAGE_NUM = 16;//1ページに表示する件数
+  const keyword = req.query.searchKeyword ? req.query.searchKeyword : 'ジャルジャル';
+  console.log(keyword)
+  const ORDER_BY = 'ASC'
+  const PAGE_NUM = 8;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
   //count(*) as count
   const query_ = `Select row_number() over() as no, *,
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   const netanotane_list_list = netanotane_list//.rows
 
   res.statusCode = 200
-  res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Access-Control-Allow-Origin', '*')
   res.status(200).json( netanotane_list_list );
 }

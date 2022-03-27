@@ -4,18 +4,6 @@ import styles from './Datalist.module.css';
 import Image from 'next/image';
 
 export default function DatasList(props){
-  const [datas, setDatas] = useState([]);
-
-  useEffect( () => {
-    //console.log(props.data.movies.rows);
-    const list = []
-    list.push(props.data);
-    setDatas(...list);
-    //console.log(list)
-  },[]);//props.datas
-
-  //console.log(props.netanotanes)
-
   return (
       
                   <Card className={styles.datalist_card}>

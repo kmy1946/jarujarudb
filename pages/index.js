@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Card, CardActionArea, CardActions, CardContent, Grid, Pagination as MuiPagination, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardContent, Grid, Pagination as MuiPagination, Typography } from '@mui/material';
 import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';

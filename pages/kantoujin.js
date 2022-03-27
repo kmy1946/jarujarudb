@@ -1,18 +1,16 @@
 import Head from 'next/head';
-import { Button, Card, CardActionArea, CardActions, CardContent, Grid, Pagination as MuiPagination, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardContent, Grid, Pagination as MuiPagination, Typography } from '@mui/material';
 import { withStyles } from '@mui/styles';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from './components/products/Datalist.module.css';
-import AllSearch from './components/AllSearch/AllSearch';
 import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import DataList from './components/products/FeaturedList';
 import TopCategories from './components/TopPage/TopPage/TopCategories';
-import { useEffect, useState } from 'react';
-import DatasList from './components/products/DatasList';
-import Image from 'next/image';
+
 
 /*
 export async function getServerSideProps(context) {

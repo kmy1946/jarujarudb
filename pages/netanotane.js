@@ -11,7 +11,7 @@ import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export default function Netanotane() {//{ data }
+export default function Netanotane() {
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト

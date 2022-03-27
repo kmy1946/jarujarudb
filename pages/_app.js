@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }) {
     }
   })
 
-  // TODO 正式なローディングコンポーネントにする
   const loadingComponent = (<Loading/>)
   return (
     <div>

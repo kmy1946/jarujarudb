@@ -21,6 +21,7 @@ export default function Categories() {
                     <Button
                       variant="contained"
                       className={styles.categories_list_button}
+                      style={{backgroundColor:'black'}}
                     >
                       {cat.title}
                     </Button>

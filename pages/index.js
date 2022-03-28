@@ -29,7 +29,7 @@ export default function Netanotane() {
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}&tag=${tag}`)
     const data = await response.json();
-    
+
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
   }
@@ -71,7 +71,7 @@ export default function Netanotane() {
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
-                      <Typography variant="body2" component="p" className={stylesDataList.datalist_duration}>
+                      <Typography variant="body2" component="p" className={`${stylesDataList.datalist_duration}`}>
                         {data.duration}
                       </Typography>
                       <CardContent style={{ height:"170px" }}>

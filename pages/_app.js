@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '@mui/styles';
 import { CssBaseline } from '@mui/material';
 import theme from '../src/theme';
+/*
 import '../styles/AllSearch.module.css';
 import '../styles/Categories.module.css';
 import '../styles/custom.module.css';
@@ -14,6 +15,7 @@ import '../styles/Header.module.css';
 import '../styles/Home.module.css';
 import '../styles/layout.module.css';
 import '../styles/UIkits.module.css';
+*/
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

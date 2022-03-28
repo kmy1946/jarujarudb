@@ -116,19 +116,19 @@ export default function Search() {//{ data }
                       <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
                       */}
                       <Image src={data.thumbnail} width={462} height={260} />
-                      <CardContent style={{ height:"170px" }}>
-                      <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
+                      <CardContent style={{ height:"180px" }}>
+                      <p className={stylesDataList.datalist_title}>
                         {data.title}
-                       </Typography>
-                      <Typography variant="body2" component="p">
+                       </p>
+                      <p>
                         {data.detail}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_created_at}>
+                      </p>
+                      <p className={stylesDataList.datalist_created_at}>
                         {data.created_at}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_views}>
+                      </p>
+                      <p className={stylesDataList.datalist_views}>
                         {data.views}{viewstext}
-                      </Typography>
+                      </p>
                       </CardContent>
                     
                       <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>

@@ -75,21 +75,20 @@ export default function Netanotane() {
                       <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
                       */}
                       <Image src={data.thumbnail} width={462} height={260} />
-                      <CardContent style={{ height:"170px" }}>
-                      <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
-                        {data.title}
-                       </Typography>
-                      <Typography variant="body2" component="p">
-                        {data.detail}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_created_at}>
-                        {data.created_at}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_views}>
-                        {data.views}{viewstext}
-                      </Typography>
+                      <CardContent style={{ height:"180px" }}>
+                        <p className={stylesDataList.datalist_title}>
+                          {data.title}
+                        </p>
+                        <p>
+                          {data.detail}
+                        </p>
+                        <p className={stylesDataList.datalist_created_at}>
+                          {data.created_at}
+                        </p>
+                        <p className={stylesDataList.datalist_views}>
+                          {data.views}{viewstext}
+                        </p>
                       </CardContent>
-                    
                       <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
                     </CardActionArea>
                   </Card>

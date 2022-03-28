@@ -74,22 +74,23 @@ export default function Netanotane() {
                       <p className={`${stylesDataList.datalist_duration}`}>
                         {data.duration}
                       </p>
-                      <CardContent style={{ height:"170px" }}>
-                      <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
+                      <CardContent style={{ height:"180px" }}>
+                      <p className={stylesDataList.datalist_title}>
                         {data.title}
-                       </Typography>
-                      <Typography variant="body2" component="p">
+                       </p>
+                      <p>
                         {data.detail}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_created_at}>
+                      </p>
+                      <p className={stylesDataList.datalist_created_at}>
                         {data.created_at}
-                      </Typography>
-                      <Typography variant='body2' component="p" className={stylesDataList.datalist_views}>
+                      </p>
+                      <p className={stylesDataList.datalist_views}>
                         {data.views}{viewstext}
-                      </Typography>
+                      </p>
                       </CardContent>
-                    
-                      <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      <div className={stylesDataList.datalist_gotolink__group}>
+                        <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      </div>
                     </CardActionArea>
                   </Card>
                 </Grid>

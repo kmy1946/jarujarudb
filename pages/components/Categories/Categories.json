@@ -26,8 +26,8 @@
   {
     "id":"0005",
     "title":"南",
-    "link":"/minamikun",
-    "style":"minamikun"
+    "link":"/minami",
+    "style":"minami"
   },
   {
     "id":"0006",
@@ -38,13 +38,13 @@
   {
     "id":"0007",
     "title":"漫才ネタ",
-    "link":"/manzaineta",
+    "link":"/manzai",
     "style":"manzaineta"
   },
   {
     "id":"0008",
     "title":"コントネタ",
-    "link":"/kontoneta",
+    "link":"/konto",
     "style":"kontoneta"
   }
 ]

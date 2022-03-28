@@ -15,7 +15,6 @@ export default async function handler(req, res) {
   const PAGE_NUM = 16;//1ページに表示する件数
 
   const TAG_NAME = req.query.tag ? `${req.query.tag}` : 'ジャルジャル';
-  console.log(TAG_NAME)
 
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
   //count(*) as count
@@ -30,6 +29,8 @@ export default async function handler(req, res) {
   const netanotane_list = await selectAll(db, query_);
 
   const netanotaneDatas = netanotane_list.rows[0]['count']//１つ目から総データ数取得
+
+  //const netanotaneDatas = netanotane_list.rows[0]['count']//１つ目から総データ数取得
 
   netanotane_list["count"] = Math.ceil(netanotaneDatas / PAGE_NUM)//Math.ceil(book_list["count"] / PAGE_NUM)//総ページ数
   //countに計算結果を代入

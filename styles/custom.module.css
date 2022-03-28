@@ -1,0 +1,33 @@
+/* 404 not found */
+.notfound__text {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(32, 202, 26);
+}
+.notfound__link {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(0, 153, 255);
+  font-weight: 600;
+}
+.notfound__link:hover {
+  color: rgb(96, 191, 255);
+  font-weight: 800;
+}
+
+/* 500 */
+.servererror__text {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(202, 120, 26);
+}
+.servererror__link {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(255, 196, 0);
+  font-weight: 600;
+}
+.servererror__link:hover {
+  color: rgb(255, 226, 96);
+  font-weight: 800;
+}

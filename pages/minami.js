@@ -4,10 +4,8 @@ import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
-import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -30,8 +28,7 @@ export default function Netanotane() {
     const tag='南';
     //const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/tag?page=${page}&tag=${tag}`);
     const response = await fetch(`http://localhost:3000/api/moviesdb/tag?page=${page}&tag=${tag}`)
-    const data = await response.json();
-
+    const  data = await response.json();
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
@@ -58,7 +55,6 @@ export default function Netanotane() {
 
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
-                
           {netanotaneList.length > 0 && (
             netanotaneList.map((data) => {
               const beforestr = data.url
@@ -109,11 +105,9 @@ export default function Netanotane() {
           </div>
           <br/><br/>
 
-            <TopCategories/>
           </Layout>
         </div>
       </main>
-      <Footer/>
     </div>
   )
 }

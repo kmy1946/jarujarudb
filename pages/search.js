@@ -7,7 +7,6 @@ import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
 import stylesSearch from '../styles/AllSearch.module.css';
 
-import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
@@ -154,7 +153,6 @@ export default function Search() {//{ data }
           </Layout>
         </div>
       </main>
-      <Footer/>
     </div>
   )
 }

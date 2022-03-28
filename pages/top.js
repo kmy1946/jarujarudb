@@ -4,7 +4,6 @@ import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
-import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
 import TopCategories from './components/TopPage/TopPage/TopCategories';
@@ -108,11 +107,9 @@ export default function Netanotane() {
           </div>
           <br/><br/>
 
-            <TopCategories/>
           </Layout>
         </div>
       </main>
-      <Footer/>
     </div>
   )
 }

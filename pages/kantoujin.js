@@ -6,11 +6,7 @@ import Image from 'next/image';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
-import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
-
-import TopCategories from './components/TopPage/TopPage/TopCategories';
-
 
 export default function Netanotane() {//{ data }
   const [page, setPage] = useState(1);//ページ番号
@@ -110,11 +106,9 @@ export default function Netanotane() {//{ data }
           </div>
           <br/><br/>
 
-            <TopCategories/>
           </Layout>
         </div>
       </main>
-      <Footer/>
     </div>
   )
 }

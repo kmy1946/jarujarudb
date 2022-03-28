@@ -16,8 +16,6 @@ function MyApp({ Component, pageProps }) {
     router.events.on('routeChangeError', handleComplete)
 
     // Remove the server-side injected CSS.
-    // This resolve Error Bellow↓
-    //「Prop `className` did not match. Server」
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);

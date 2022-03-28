@@ -4,10 +4,8 @@ import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
-import Footer from './components/base/Footer/Footer';
 import Layout from './components/layout';
 
-import TopCategories from './components/TopPage/TopPage/TopCategories';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -27,12 +25,11 @@ export default function Netanotane() {
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
-    const tag='ネタのタネ';
+    const tag='ジャルジャル';
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}&tag=${tag}`)
     const data = await response.json();
-
-
+    
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
   }
@@ -110,11 +107,9 @@ export default function Netanotane() {
           </div>
           <br/><br/>
 
-            <TopCategories/>
           </Layout>
         </div>
       </main>
-      <Footer/>
     </div>
   )
 }

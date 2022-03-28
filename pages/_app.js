@@ -1,40 +1,37 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import '../styles/globals.css';
-import Loading from "./components/UIkits/Loading";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import { ThemeProvider } from '@mui/styles';
+import { CssBaseline } from '@mui/material';
+import theme from '../src/theme';
 
-function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-  const [pageLoading, setPageLoading] = useState(false)
+export default function MyApp(props) {
+  const { Component, pageProps } = props;
 
-  useEffect(() => {
-    const handleStart = (url) => url !== router.asPath && setPageLoading(true)
-    const handleComplete = () => setPageLoading(false)
-
-    router.events.on('routeChangeStart', handleStart)
-    router.events.on('routeChangeComplete', handleComplete)
-    router.events.on('routeChangeError', handleComplete)
-
+  React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
+  }, []);
 
-    return () => {
-      router.events.off('routeChangeStart', handleStart)
-      router.events.off('routeChangeComplete', handleComplete)
-      router.events.off('routeChangeError', handleComplete)
-    }
-  })
-
-  const loadingComponent = (<Loading/>)
   return (
-    <div>
-      {pageLoading && loadingComponent}
-      <Component {...pageProps} />
-    </div>
-  )
+    <React.Fragment>
+      <Head>
+        <title>My page</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </React.Fragment>
+  );
 }
 
-export default MyApp
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};

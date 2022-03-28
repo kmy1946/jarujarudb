@@ -28,6 +28,7 @@ export default function Netanotane() {
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page) => {
     const tag='ネタのタネ';
+    const orderby = 'ASC'
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/tag?page=${page}&tag=${tag}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/tag?page=${page}&tag=${tag}`)
     const data = await response.json();

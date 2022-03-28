@@ -71,9 +71,9 @@ export default function Netanotane() {
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
-                      <Typography variant="body2" component="p" className={`${stylesDataList.datalist_duration}`}>
+                      <p className={`${stylesDataList.datalist_duration}`}>
                         {data.duration}
-                      </Typography>
+                      </p>
                       <CardContent style={{ height:"170px" }}>
                       <Typography variant="body2" component="p" className={stylesDataList.datalist_title}>
                         {data.title}

@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
 import Layout from './components/layout';
 
-export default function Netanotane() {
+export default function Home() {
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト

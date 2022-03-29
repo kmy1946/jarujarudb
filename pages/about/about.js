@@ -30,7 +30,7 @@ export default function About() {
             YouTubeでは関連性に基づいた検索が実行されますが、当サイトでは{new Date().getFullYear()}年現在単純な文字列検索を実行します。
           </p>
           <p className={styles.about__text}>
-            無限スクロールによる読み込みに対して、<stropng>ページネーション</stropng>による一覧表示で過去の動画にさかのぼる際の再レンダリングを予防できます。
+            無限スクロールによる読み込みに対して、<stropng>ページネーション</stropng>による一覧表示で過去の動画にさかのぼる際に予期せず起こる画面の再レンダリングを予防できます。
           </p>
           <br/>
           <br/>

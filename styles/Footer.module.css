@@ -54,9 +54,12 @@
 }
 .footer__description_box {
   text-align: center;
+  font-size: 20px;
   color: rgb(72, 75, 77);
+  /*
   margin-top: 20px;
   margin-bottom: 50px;
+  */
 }
 .footer__description_text {
   font-weight: 600;
@@ -103,4 +106,65 @@ input[type="checkbox"].on_off:checked + ul{
 }
 .footer__twitter:hover {
   color: rgb(91, 136, 204);
+}
+/* footer about */
+.footer__about_box{
+  text-align: center;
+  color: rgb(72, 75, 77);
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.footer__about_text {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.footerabout__group{
+  text-align: center;
+}
+.footerabout__ul{
+  text-decoration: none;
+}
+
+
+/* jarujarudb or youtube table */
+.footer_about__table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.footer_about__table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+.footer_about__row {
+  background-color: rgb(216, 216, 216);
+}
+
+.footer__about_row_title {
+  background-color: #c5ffae;
+}
+
+.footer_about__column {
+  background-color: #9fd4ff;
+}
+
+.footer_about__table tr:hover{
+  background-color: #d4f0fd;
+}
+
+.footer_about__table th,.footer_about__table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
+.footer_about__table td.icon{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
 }

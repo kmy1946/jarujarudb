@@ -1,16 +1,17 @@
 import styles from "../../../styles/Categories.module.css";
 import categories from "./Categories.json";
 import Link from "next/link";
-import { Button } from "@mui/material";
 
 export default function Categories() {
   return (
       <div className={styles.categories_scroll_nav}>
+        {/*
         <div className={styles.categories_tag}>
           <p>
             タグ検索
           </p>
         </div>
+        */}
         <br/>
         <ul className={styles.categories_ul}>
           {
@@ -24,15 +25,13 @@ export default function Categories() {
                     >
                       {cat.title}
                     </button>
-                      
                   </Link>
                 </li>
               )
             })
           }
         </ul>
-        <br/><br/>
-        <br/><br/>
+        <br/>
       </div>
   )
 }

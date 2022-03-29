@@ -1,0 +1,62 @@
+.about_h1 {
+  position: relative;
+  color: #158b2b;
+  font-size: 20px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 1.5em 0;
+}
+.about_h1:before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 150px;
+  height: 130%;
+  border-radius: 50%;
+  border: 5px solid #a6ddb0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.about__description {
+  text-align: center;
+}
+.about_hiroyukilink {
+  text-decoration: none;
+  color: #154c8b;
+  font-weight: 600;
+}
+.about_hiroyukilink:hover {
+  color: #4e96e9;
+  font-weight: 800;
+}
+
+.about__h2 {
+	position: relative;
+	display: inline-block;
+	padding: 0 2.5em;
+}
+.about__h2:before,
+.about__h2:after {
+	position: absolute;
+	display: inline-block;
+	content: '';
+	top: 50%;
+	width: 44px;
+	height: 2px;
+	background-color: #000;
+	-webkit-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+}
+.about__h2:before {
+	left:0;
+}
+.about__h2:after {
+	right: 0;
+}
+.about__text {
+  margin: 0 auto;
+  width: 95%;
+}

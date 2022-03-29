@@ -16,10 +16,9 @@ export default function Layout(props) {
       </Head>
       <Heading/>
       <Header header={props.header} />
+        
         <Categories/>
         <TopPageTitle/>
-        <br/>
-        <br/>
         {props.children}
     </div>
     <TopCategories/>

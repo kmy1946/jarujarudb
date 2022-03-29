@@ -41,9 +41,6 @@ export default function Search() {//{ data }
     //const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`)
     const data = await response.json();
 
-    console.log(data);
-    console.log(searchKeyword);
-
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
   }
@@ -65,6 +62,7 @@ export default function Search() {//{ data }
 
       <main className={styles.main}>
         <div>
+        <br/><br/><br/><br/>
             <TextField
               fullWidth={false} label={"キーワード検索"}
               multiline={false}
@@ -108,7 +106,6 @@ export default function Search() {//{ data }
               const viewstext = ' 回視聴'
               
               return (
-                <>
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
@@ -135,7 +132,6 @@ export default function Search() {//{ data }
                     </CardActionArea>
                   </Card>
                 </Grid>
-                </>
                 )}))}
                 
                 </Grid>

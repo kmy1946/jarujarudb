@@ -1,12 +1,14 @@
-.header_root { 
+.header_root {
 }
 .header_menuBar {
   height: 40px;
+  background-color: rgb(24, 151, 255);
 }
 .header_left {
   margin-bottom: 18px;
 }
 .header_right_text {
+  text-align: right;
 }
 .heading {
 }

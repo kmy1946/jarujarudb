@@ -7,6 +7,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import stylesDataList from '../styles/Datalist.module.css';
 import Layout from './components/layout';
+import Loading2 from './components/UIkits/Loading2';
 
 export default function Home() {
   const [page, setPage] = useState(1);//ページ番号
@@ -56,7 +57,7 @@ export default function Home() {
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
                 
-          {netanotaneList.length > 0 && (
+          {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
@@ -93,9 +94,12 @@ export default function Home() {
                     </CardActionArea>
                   </Card>
                 </Grid>
-                )}))}
+                )})
+                ):(
+                  <Loading2/>
+                )}
                 </Grid>
-                </Grid>
+              </Grid>
 
           <div style={{marginTop: "50px", textAlign: "center"}}>
             <Pagination

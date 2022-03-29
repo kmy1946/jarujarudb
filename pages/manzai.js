@@ -8,6 +8,7 @@ import Layout from './components/layout';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Loading2 from './components/UIkits/Loading2';
 
 export default function Netanotane() {
   const [page, setPage] = useState(1);//ページ番号
@@ -56,7 +57,7 @@ export default function Netanotane() {
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
                 
-          {netanotaneList.length > 0 && (
+        {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
@@ -69,10 +70,10 @@ export default function Netanotane() {
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
-                      {/*
-                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
-                      */}
                       <Image src={data.thumbnail} width={462} height={260} />
+                      <p className={`${stylesDataList.datalist_duration}`}>
+                        {data.duration}
+                      </p>
                       <CardContent style={{ height:"180px" }}>
                       <p className={stylesDataList.datalist_title}>
                         {data.title}
@@ -87,11 +88,16 @@ export default function Netanotane() {
                         {data.views}{viewstext}
                       </p>
                       </CardContent>
-                      <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      <div className={stylesDataList.datalist_gotolink__group}>
+                        <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      </div>
                     </CardActionArea>
                   </Card>
                 </Grid>
-                )}))}
+                )})
+                ):(
+                  <Loading2/>
+                )}
                 </Grid>
                 </Grid>
 

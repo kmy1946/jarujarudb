@@ -10,6 +10,7 @@ import stylesSearch from '../styles/AllSearch.module.css';
 import Layout from './components/layout';
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
+import Loading2 from './components/UIkits/Loading2';
 
 export default function Search() {//{ data }
   const [page, setPage] = useState(1);//ページ番号
@@ -95,24 +96,23 @@ export default function Search() {//{ data }
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
                 
-        {netanotaneList.length > 0 && (
+        {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
               const urlv = result[0]
-
+              
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
-              
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
-                      {/*
-                      <CardMedia style={{ height: "170px" }} image={data.thumbnail} />
-                      */}
                       <Image src={data.thumbnail} width={462} height={260} />
+                      <p className={`${stylesDataList.datalist_duration}`}>
+                        {data.duration}
+                      </p>
                       <CardContent style={{ height:"180px" }}>
                       <p className={stylesDataList.datalist_title}>
                         {data.title}
@@ -127,12 +127,16 @@ export default function Search() {//{ data }
                         {data.views}{viewstext}
                       </p>
                       </CardContent>
-                    
-                      <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      <div className={stylesDataList.datalist_gotolink__group}>
+                        <Button size="small" className={stylesDataList.datalist_gotolink}>動画をみる</Button>
+                      </div>
                     </CardActionArea>
                   </Card>
                 </Grid>
-                )}))}
+                )})
+                ):(
+                  <Loading2/>
+                )}
                 
                 </Grid>
                 </Grid>

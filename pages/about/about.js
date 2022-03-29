@@ -18,7 +18,7 @@ export default function About() {
             参考にさせて頂いたサイト
           </p>
           <p>
-            <a href="https://hiroyukidb.net/" target='_blank' className={styles.about_hiroyukilink}>
+            <a href="https://hiroyukidb.net/" rel="noreferrer" target='_blank' className={styles.about_hiroyukilink}>
               ひろゆきデータベース
             </a>
           </p>

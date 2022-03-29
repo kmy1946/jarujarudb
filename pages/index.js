@@ -26,7 +26,7 @@ export default function Netanotane() {
   const setNetanotaneListAPI = async(page) => {
     const tag='ジャルジャル';
 
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`);
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/moviesdb?page=${page}&tag=${tag}`).then((res) => console.log(res)).catch((error) => console.log(error))
     //const response = await fetch(`http://localhost:3000/api/moviesdb/moviesdb?page=${page}&tag=${tag}`)
     const data = await response.json();
 

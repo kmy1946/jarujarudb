@@ -28,8 +28,6 @@ export default async function handler(req, res) {
   //全て、昇順、PAGE_NUM制限、offset_coefficient
   const netanotane_list = await selectAll(db, query_);
 
-
-
   const netanotaneDatas = netanotane_list.rows[0]['count']//１つ目から総データ数取得
 
   //const netanotaneDatas = netanotane_list.rows[0]['count']//１つ目から総データ数取得

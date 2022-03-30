@@ -54,8 +54,8 @@ export default function Search() {//{ data }
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeyword) => {
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchKeywordlist=${searchKeywordList}`);
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`, {mode: 'cors'})
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeyword}`, {mode: 'cors'})
     const data = await response.json();
 
     console.log('\ndata:',data)

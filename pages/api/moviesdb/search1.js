@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
   const TAG_NAME = '%漫才%';
 
-  const list = req.query.searchkeywordlist//リストを受け取る
+  const list = [req.query.searchkeywordlist]//リストを受け取る
 
   console.log('\n\nlist:',req.query.searchkeywordlist)
 

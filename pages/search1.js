@@ -38,10 +38,13 @@ export default function Search() {//{ data }
     
   }
 
-  useEffect(async () => {
+  useEffect(async() => {
     DeleteComma();
+  }, [searchKeywordList])
+
+  useEffect(async() => {
     setNetanotaneListAPI(page, searchKeyword);
-  }, [searchKeywordList]);
+  }, []);
 
   const clickPage = (e, page) => {
     setPage(page);

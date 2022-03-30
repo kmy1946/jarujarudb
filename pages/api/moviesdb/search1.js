@@ -34,13 +34,14 @@ export default async function handler(req, res) {
   const PAGE_NUM = 16;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
 
-  const TAG_NAME = '%漫才%';
+  //const list = req.query.searchkeywordlist//リストを受け取る
 
-  const list = [req.query.searchkeywordlist]//リストを受け取る
+  const _list = req.query.searchkeywordlist
+  const list_ = _list.split(',')
 
-  console.log('\n\nlist:',req.query.searchkeywordlist)
+  console.log('\n\nlist:',_list)
 
-  const TAG_NAMES = list.join('%')// ジャル%ネタ%のタネ
+  const TAG_NAMES = list_.join('%')// ジャル%ネタ%のタネ
 
   const query_ = `Select row_number() over() as no, *,
                   COUNT(*) OVER () AS count

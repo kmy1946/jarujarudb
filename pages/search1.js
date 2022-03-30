@@ -25,10 +25,23 @@ export default function Search() {//{ data }
     setSearchKeywordList(event.target.value);
   }, [setSearchKeyword]);
 
-  useEffect(async () => {
+  const DeleteComma = () => {
+    if (typeof(searchKeywordList) == 'object') {
+      const before = searchKeywordList
+      const after = before.join()
+      const result = after.replace(',', '　')
+      setSearchKeywordList(result)
+    } else false
+  }
 
+  const AddComma = () => {
+    
+  }
+
+  useEffect(async () => {
+    DeleteComma();
     setNetanotaneListAPI(page, searchKeyword);
-  }, []);
+  }, [searchKeywordList]);
 
   const clickPage = (e, page) => {
     setPage(page);
@@ -36,7 +49,8 @@ export default function Search() {//{ data }
   };
 
   const clickSearchButton = (e) => {
-    const keyword = searchKeyword.split("　")
+    console.log(searchKeywordList)
+    const keyword = searchKeywordList.split("　")
     if (keyword.length >= 2){//スペースでsplitされた時
       const keywordData = keyword.join(',')
       const list = []
@@ -55,12 +69,12 @@ export default function Search() {//{ data }
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeyword) => {
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    //const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeyword}`, {mode: 'cors'})
     const data = await response.json();
 
-    console.log('\ndata:',data)
+    //console.log('data:',data)
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数

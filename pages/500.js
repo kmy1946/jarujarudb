@@ -14,9 +14,12 @@ export default function Custom500() {
           Server Error Occurred.
         </p>
         <br/>
-        <p className={styles.servererror__link}>
-          トップページへ
-        </p>
+        <Link href='/'>
+          <p className={styles.servererror__link}>
+            トップページへ
+          </p>
+        </Link>
+        
       </Layout>
     </div>
   )

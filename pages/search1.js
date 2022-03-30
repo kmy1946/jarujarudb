@@ -21,7 +21,8 @@ export default function Search() {//{ data }
   const [searchKeywordList, setSearchKeywordList] = useState(['ジャルジャル','ネタのタネ']);//複数ワードの場合
 
   const inputSearchKeyword = useCallback((event) => {
-    setSearchKeyword(event.target.value);
+    //setSearchKeyword(event.target.value);
+    setSearchKeywordList(event.target.value);
   }, [setSearchKeyword]);
 
   useEffect(async () => {
@@ -83,12 +84,24 @@ export default function Search() {//{ data }
       <main className={styles.main}>
         <div>
         <br/><br/><br/><br/>
+            {/*
             <TextField
               fullWidth={false} label={"キーワード検索"}
               multiline={false}
               size="small"
               onChange={inputSearchKeyword}
               value={searchKeyword}
+              required={false} rows={1} 
+              type={"text"}
+              className={stylesSearch.all_search_textfield}
+            />
+            */}
+            <TextField
+              fullWidth={false} label={"キーワード検索"}
+              multiline={false}
+              size="small"
+              onChange={inputSearchKeyword}
+              value={searchKeywordList}
               required={false} rows={1} 
               type={"text"}
               className={stylesSearch.all_search_textfield}
@@ -114,11 +127,10 @@ export default function Search() {//{ data }
 
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
-                {/*
+                
         {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
               const beforestr = data.url
-              console.log('\n\n\n\n\n\nbeforestr',beforestr,'\n\n\n\n\n\n\n')
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
               const urlv = result[0]
@@ -159,7 +171,7 @@ export default function Search() {//{ data }
                 )}
 
 
-                */}
+                
                 
                 </Grid>
                 </Grid>

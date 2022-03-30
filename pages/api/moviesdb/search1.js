@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   const query_ = `Select row_number() over() as no, *,
                   COUNT(*) OVER () AS count
                   from movie "WITH" (NOLOCK)
-                  where title LIKE '%${TAG_NAMES}%'
+                  where title LIKE '%ジャルジャル%ネタのタネ%'
                   ORDER BY created_at ${ORDER_BY}
                   limit ${PAGE_NUM}
                   OFFSET ${PAGE_NUM*offset_coefficient}

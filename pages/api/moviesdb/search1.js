@@ -39,7 +39,8 @@ export default async function handler(req, res) {
                   where title LIKE '%${TAG_NAMES}%'
                   ORDER BY created_at ${ORDER_BY}
                   limit ${PAGE_NUM}
-                  `//OFFSET ${PAGE_NUM*offset_coefficient}
+                  OFFSET ${PAGE_NUM*offset_coefficient}
+                  `//
 
   //全て、昇順、PAGE_NUM制限、offset_coefficient
   const netanotane_list = await selectAll(db, query_);

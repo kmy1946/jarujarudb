@@ -131,7 +131,7 @@ input[type="checkbox"].on_off:checked + ul{
 .footer_about__table{
   border-collapse: collapse;
   border-spacing: 0;
-  width: 60%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -145,11 +145,11 @@ input[type="checkbox"].on_off:checked + ul{
 }
 
 .footer__about_row_title {
-  background-color: #c5ffae;
+  background-color: #e5ffda;
 }
 
 .footer_about__column {
-  background-color: #9fd4ff;
+  background-color: #d2ebff;
 }
 
 .footer_about__table tr:hover{

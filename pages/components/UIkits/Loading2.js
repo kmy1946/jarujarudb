@@ -5,7 +5,7 @@ export default function Loading2() {
   return (
     <div className={styles.uikits_circularProgress2}>
       <CircularProgress />
-      <strong className={styles.uikits_circularProgress__text2}>　Loading</strong>
+      <strong className={styles.uikits_circularProgress__text2}></strong>
     </div>
   )
 }

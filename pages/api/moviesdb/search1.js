@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
   const TAG_NAME = '%漫才%';
 
-  const list = req.query.searchKeywordList//リストを受け取る
+  const list = req.query.searchKeywordlist//リストを受け取る
 
   const TAG_NAMES = list.join('%')// ジャル%ネタ%のタネ
 

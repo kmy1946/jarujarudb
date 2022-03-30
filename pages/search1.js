@@ -15,7 +15,7 @@ import Loading2 from './components/UIkits/Loading2';
 export default function Search() {//{ data }
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
-  const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
+  const [netanotaneList, setNetanotaneList] = useState(['ジャルジャル','ネタのタネ']);//取得した本のリスト
 
   const [searchKeyword, setSearchKeyword] = useState("ジャルジャル");
   const [searchKeywordList, setSearchKeywordList] = useState([]);//複数ワードの場合
@@ -25,6 +25,7 @@ export default function Search() {//{ data }
   }, [setSearchKeyword]);
 
   useEffect(async () => {
+
     setNetanotaneListAPI(page, searchKeyword);
   }, []);
 
@@ -53,9 +54,11 @@ export default function Search() {//{ data }
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeyword) => {
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/allsearch1?page=${page}&searchKeyword=${searchKeywordList}`);
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/allsearch1?page=${page}&searchKeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`, {mode: 'cors'})
     const data = await response.json();
+
+    console.log(data)
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
@@ -110,10 +113,11 @@ export default function Search() {//{ data }
 
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
-                
+                {/*
         {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
               const beforestr = data.url
+              console.log('\n\n\n\n\n\nbeforestr',beforestr,'\n\n\n\n\n\n\n')
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
               const urlv = result[0]
@@ -152,6 +156,9 @@ export default function Search() {//{ data }
                 ):(
                   <Loading2/>
                 )}
+
+
+                */}
                 
                 </Grid>
                 </Grid>

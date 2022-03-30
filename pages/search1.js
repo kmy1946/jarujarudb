@@ -15,10 +15,10 @@ import Loading2 from './components/UIkits/Loading2';
 export default function Search() {//{ data }
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
-  const [netanotaneList, setNetanotaneList] = useState(['ジャルジャル','ネタのタネ']);//取得した本のリスト
+  const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
 
   const [searchKeyword, setSearchKeyword] = useState("ジャルジャル");
-  const [searchKeywordList, setSearchKeywordList] = useState([]);//複数ワードの場合
+  const [searchKeywordList, setSearchKeywordList] = useState(['ジャルジャル','ネタのタネ']);//複数ワードの場合
 
   const inputSearchKeyword = useCallback((event) => {
     setSearchKeyword(event.target.value);
@@ -55,6 +55,7 @@ export default function Search() {//{ data }
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeyword) => {
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeyword}`, {mode: 'cors'})
     const data = await response.json();
 

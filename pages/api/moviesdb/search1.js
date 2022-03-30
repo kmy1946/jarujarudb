@@ -16,6 +16,14 @@ const pool = new Pool({
   idleTimeoutMillis: 30000//自動切断ミリ秒
 });
 
+const selectAll = (db, query) => {
+  return new Promise((resolve, reject) => {
+    pool.query(query, (err, rows) => {
+      if (err) return reject(err);
+      return resolve(rows);
+    });
+  });
+};
 
 export default async function handler(req, res) {
   const db = pool;
@@ -28,14 +36,16 @@ export default async function handler(req, res) {
 
   const TAG_NAME = '%漫才%';
 
-  const list = req.query.searchkeywordlist//リストを受け取る
+  const list = ['ジャルジャル','ネタのタネ']//req.query.searchkeywordlist//リストを受け取る
+
+  console.log('\n\nlist:',req.query.searchkeywordlist)
 
   const TAG_NAMES = list.join('%')// ジャル%ネタ%のタネ
 
   const query_ = `Select row_number() over() as no, *,
                   COUNT(*) OVER () AS count
                   from movie "WITH" (NOLOCK)
-                  where title LIKE '%ジャルジャル%ネタのタネ%'
+                  where title LIKE '%${TAG_NAMES}%'
                   ORDER BY created_at ${ORDER_BY}
                   limit ${PAGE_NUM}
                   OFFSET ${PAGE_NUM*offset_coefficient}

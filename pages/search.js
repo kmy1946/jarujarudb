@@ -60,7 +60,7 @@ export default function Search() {
   const setNetanotaneListAPI = async(page, searchKeywordList) => {
     console.log('第２引数',searchKeywordList)
     console.log('page:',page)
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
     const data = await response.json();
 

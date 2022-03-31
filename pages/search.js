@@ -12,50 +12,58 @@ import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Loading2 from './components/UIkits/Loading2';
 
-export default function Search() {//{ data }
+export default function Search() {
   const [page, setPage] = useState(1);//ページ番号
   const [count, setCount] = useState();//総ページ数
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
 
   const [searchKeyword, setSearchKeyword] = useState("ジャルジャル");
-  const [searchKeywordList, setSearchKeywordList] = useState([]);//複数ワードの場合
+  const [searchKeywordList, setSearchKeywordList] = useState(['ジャルジャル','ネタのタネ']);//複数ワードの場合
 
   const inputSearchKeyword = useCallback((event) => {
-    setSearchKeyword(event.target.value);
+    //setSearchKeyword(event.target.value);
+    setSearchKeywordList(event.target.value);
+    setPage(1)//valueが変更された時、pageも変更
   }, [setSearchKeyword]);
-
-  useEffect(async () => {
-    setNetanotaneListAPI(page, searchKeyword);
-  }, []);
 
   const clickPage = (e, page) => {
     setPage(page);
-    setNetanotaneListAPI(page, searchKeyword);
+    setNetanotaneListAPI(page, searchKeywordList);
   };
-
+  
   const clickSearchButton = (e) => {
-    const keyword = searchKeyword.split("　")
-    if (keyword.length >= 2){//スペースでsplitされた時
-      const keywordData = keyword.join(',')
-      const list = []
-      keyword.map(k => {
-          list.push(k);
-      });
-      setSearchKeywordList(list)
-      console.log('searchKeywordList:',searchKeywordList);
-    } else {
-      console.log('searchKeyword:',searchKeyword)
-      setNetanotaneListAPI(page, searchKeyword);
-    }
+    //AddComma();
+    if (typeof(searchKeywordList) == 'string') {
+      const spaceData = searchKeywordList
+      const resultspace = spaceData.replace('　', ',')
+      /*
+      // ,で終わった時
+      const regex = '^.*,$'
+      if (resultspace.match(regex)) {
+        console.log('match:',resultspace)
+        const re = resultspace.match(regex)
+        resultspace = resultspace.slice(0, -1)//replace(",","")
+        console.log(resultspace)
+      }
+      */
+      setSearchKeywordList(resultspace)
+      console.log(resultspace)
 
-    //setNetanotaneListAPI(page, searchKeyword);
+      setNetanotaneListAPI(page, resultspace);
+    } else {
+      console.log('Not String');
+      return false
+    }
   }
 
   //取得データのセットと総データ件数をセットする
-  const setNetanotaneListAPI = async(page, searchKeyword) => {
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`);
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`, {mode: 'cors'})
+  const setNetanotaneListAPI = async(page, searchKeywordList) => {
+    console.log('第２引数',searchKeywordList)
+    console.log('page:',page)
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
     const data = await response.json();
+
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
@@ -67,6 +75,25 @@ export default function Search() {//{ data }
     },
   }) (MuiPagination);
 
+  /*
+  const DeleteComma = () => {
+    if (typeof(searchKeywordList) == 'object') {
+      const before = searchKeywordList
+      const after = before.join()
+      
+      const result = after.replace(',', '　')
+      setSearchKeywordList(result)
+    } else false
+  }
+  
+  useEffect(async() => {
+    DeleteComma();
+  }, [searchKeywordList])
+  */
+
+  useEffect(async() => {
+    setNetanotaneListAPI(page, searchKeywordList);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -79,12 +106,24 @@ export default function Search() {//{ data }
       <main className={styles.main}>
         <div>
         <br/><br/><br/><br/>
+            {/*
             <TextField
               fullWidth={false} label={"キーワード検索"}
               multiline={false}
               size="small"
               onChange={inputSearchKeyword}
               value={searchKeyword}
+              required={false} rows={1} 
+              type={"text"}
+              className={stylesSearch.all_search_textfield}
+            />
+            */}
+            <TextField
+              fullWidth={false} label={"キーワード検索"}
+              multiline={false}
+              size="small"
+              onChange={inputSearchKeyword}
+              value={searchKeywordList}
               required={false} rows={1} 
               type={"text"}
               className={stylesSearch.all_search_textfield}
@@ -152,11 +191,15 @@ export default function Search() {//{ data }
                 ):(
                   <Loading2/>
                 )}
+
+
+                
                 
                 </Grid>
                 </Grid>
 
           <div style={{marginTop: "50px", textAlign: "center"}}>
+
             <Pagination
               count={count}//総ページ数
               color="primary"

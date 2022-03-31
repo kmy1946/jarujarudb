@@ -18,31 +18,13 @@ export default function Search() {//{ data }
   const [netanotaneList, setNetanotaneList] = useState([]);//取得した本のリスト
 
   const [searchKeyword, setSearchKeyword] = useState("ジャルジャル");
-  const [searchKeywordList, setSearchKeywordList] = useState(['ジャルジャル','ネタのタネ']);//複数ワードの場合
+  const [searchKeywordList, setSearchKeywordList] = useState([]);//複数ワードの場合
 
   const inputSearchKeyword = useCallback((event) => {
-    //setSearchKeyword(event.target.value);
-    setSearchKeywordList(event.target.value);
+    setSearchKeyword(event.target.value);
   }, [setSearchKeyword]);
 
-  const DeleteComma = () => {
-    if (typeof(searchKeywordList) == 'object') {
-      const before = searchKeywordList
-      const after = before.join()
-      const result = after.replace(',', '　')
-      setSearchKeywordList(result)
-    } else false
-  }
-
-  const AddComma = () => {
-    
-  }
-
-  useEffect(async() => {
-    DeleteComma();
-  }, [searchKeywordList])
-
-  useEffect(async() => {
+  useEffect(async () => {
     setNetanotaneListAPI(page, searchKeyword);
   }, []);
 
@@ -52,8 +34,7 @@ export default function Search() {//{ data }
   };
 
   const clickSearchButton = (e) => {
-    console.log(searchKeywordList)
-    const keyword = searchKeywordList.split("　")
+    const keyword = searchKeyword.split("　")
     if (keyword.length >= 2){//スペースでsplitされた時
       const keywordData = keyword.join(',')
       const list = []
@@ -72,12 +53,9 @@ export default function Search() {//{ data }
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeyword) => {
-    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
-    //const response = await fetch(`http://localhost:3000/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeyword}`, {mode: 'cors'})
+    const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`);
+    //const response = await fetch(`http://localhost:3000/api/moviesdb/allsearch?page=${page}&searchKeyword=${searchKeyword}`, {mode: 'cors'})
     const data = await response.json();
-
-    //console.log('data:',data)
 
     setNetanotaneList(data.rows);//.rows);//取得データ
     setCount(data.count);//総データ件数
@@ -101,24 +79,12 @@ export default function Search() {//{ data }
       <main className={styles.main}>
         <div>
         <br/><br/><br/><br/>
-            {/*
             <TextField
               fullWidth={false} label={"キーワード検索"}
               multiline={false}
               size="small"
               onChange={inputSearchKeyword}
               value={searchKeyword}
-              required={false} rows={1} 
-              type={"text"}
-              className={stylesSearch.all_search_textfield}
-            />
-            */}
-            <TextField
-              fullWidth={false} label={"キーワード検索"}
-              multiline={false}
-              size="small"
-              onChange={inputSearchKeyword}
-              value={searchKeywordList}
               required={false} rows={1} 
               type={"text"}
               className={stylesSearch.all_search_textfield}
@@ -186,9 +152,6 @@ export default function Search() {//{ data }
                 ):(
                   <Loading2/>
                 )}
-
-
-                
                 
                 </Grid>
                 </Grid>

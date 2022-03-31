@@ -1,0 +1,14 @@
+.profile__group {
+  text-align: center;
+  background-color: rgb(209, 255, 188);
+  height: 100%;
+  width: 85%;
+  margin: 0 auto;
+}
+.profile__text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 550;
+  color: rgb(100, 100, 100);
+  padding: 4px;
+}

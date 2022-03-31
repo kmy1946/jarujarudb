@@ -6,6 +6,7 @@ import TopPageTitle from "./TopPage/TopPageTitle.js/TopPageTitle";
 import Categories from "./Categories/Categories";
 import Footer from "./base/Footer/Footer";
 import TopCategories from "./TopPage/TopPage/TopCategories";
+import Profile from "./base/Profile/Profile";
 
 export default function Layout(props) {
   return (
@@ -16,7 +17,7 @@ export default function Layout(props) {
       </Head>
       <Heading/>
       <Header header={props.header} />
-        
+        <Profile/>
         <Categories/>
         <TopPageTitle/>
         {props.children}

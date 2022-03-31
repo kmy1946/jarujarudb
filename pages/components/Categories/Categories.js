@@ -12,7 +12,6 @@ export default function Categories() {
           </p>
         </div>
         */}
-        <br/>
         <ul className={styles.categories_ul}>
           {
             categories.map(cat => {

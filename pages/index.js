@@ -52,13 +52,16 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.container}>
           <Layout header='ジャルジャルDB'>
-            <br/>
-            <br/>
           <Grid container direction="column">
         <Grid container className={styles.datalist}>
                 
           {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
+              // title, views, created_at, から{}を取り除く
+              const title_ = data.title.replace(/{|}|"/g, '');
+              const views_ = data.views.replace(/{|}|"/g, '');
+              const created_at_ = data.created_at.replace(/{|}|"/g, '');
+
               const beforestr = data.url
               const regex = /(?<=v=)(.*)/
               const result = beforestr.match(regex);
@@ -66,26 +69,28 @@ export default function Home() {
               
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
+              const duraiton_ = data.duration.replace('.','分')
+              const duraiton__ = duraiton_.replace(':','時間')
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
                       <p className={`${stylesDataList.datalist_duration}`}>
-                        {data.duration}
+                        {duraiton__}
                       </p>
                       <CardContent style={{ height:"180px" }}>
                       <p className={stylesDataList.datalist_title}>
-                        {data.title}
+                        {title_}
                        </p>
                       <p>
                         {data.detail}
                       </p>
                       <p className={stylesDataList.datalist_created_at}>
-                        {data.created_at}
+                        {created_at_}
                       </p>
                       <p className={stylesDataList.datalist_views}>
-                        {data.views}{viewstext}
+                        {views_}{viewstext}
                       </p>
                       </CardContent>
                       <div className={stylesDataList.datalist_gotolink__group}>

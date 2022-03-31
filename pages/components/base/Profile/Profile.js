@@ -13,7 +13,7 @@ export default function Profile() {
           </a>
         </div>
         <div className={styles.prf__card_text}>
-          <p>ジャルジャルDB</p>
+          <p>ジャルジャル データベース</p>
           <p>ジャルジャルタワーの動画を検索できます!!</p>
         </div>
       </div>

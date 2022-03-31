@@ -54,7 +54,6 @@ export default function Netanotane() {
       <main className={styles.main}>
         <div className={styles.container}>
           <Layout header='ジャルジャルDB'>
-            <br/>
 
           <Grid container direction="column">
         <Grid container className={styles.datalist}>

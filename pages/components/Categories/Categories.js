@@ -5,13 +5,6 @@ import Link from "next/link";
 export default function Categories() {
   return (
       <div className={styles.categories_scroll_nav}>
-        {/*
-        <div className={styles.categories_tag}>
-          <p>
-            タグ検索
-          </p>
-        </div>
-        */}
         <ul className={styles.categories_ul}>
           {
             categories.map(cat => {

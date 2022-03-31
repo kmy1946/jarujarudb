@@ -103,7 +103,7 @@ export default function Search() {
                     required={false} rows={1} 
                     type={"text"}
                     className={stylesSearch.all_search_textfield}
-                  /><br/><br/>
+                  />
               </div>
               <div className={stylesSearch.all_search_search_button}>
                 <Button

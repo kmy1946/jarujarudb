@@ -69,15 +69,26 @@ export default function Home() {
               
               let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
-              const duraiton_ = data.duration.replace('.','分')
-              const duraiton__ = duraiton_.replace(':','時間')
+              
+              // duration
+              const duraiton_ = data.duration.replace('.','分');
+              let duration__ = duraiton_.replace(':','時間');
+              const rege1 = /d*分d*/;
+              const rege2 = /d*時間d*/;
+              if (rege1.test(duration__)) {
+                duration__ = `${duration__}秒`;
+                if (rege2.test(duration__)) {//時間の場合
+                  duration__ = duration__.replace('秒','')
+                } else false
+              } else false
+
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
                       <p className={`${stylesDataList.datalist_duration}`}>
-                        {duraiton__}
+                        {duration__}
                       </p>
                       <CardContent style={{ height:"180px" }}>
                       <p className={stylesDataList.datalist_title}>

@@ -11,19 +11,18 @@ import Profile from "./base/Profile/Profile";
 export default function Layout(props) {
   return (
     <div>
-    <div className={styles.container}>
-      <Head>
-        <title>{props.title}</title>
-      </Head>
-      <Heading/>
-      <Header header={props.header} />
-        <Profile/>
-        <Categories/>
-        <TopPageTitle/>
-        {props.children}
-    </div>
-    <TopCategories/>
-    <Footer/>
+      
+      <div className={styles.container}>
+        <Head>
+          <title>{props.title}</title>
+        </Head>
+        <Heading/>
+        <Header header={props.header} />
+          <Categories/>
+          {props.children}
+      </div>
+      <TopCategories/>
+      <Footer/>
     </div>
   )
 }

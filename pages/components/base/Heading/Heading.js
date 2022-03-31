@@ -4,12 +4,15 @@ import { AppBar, Toolbar } from "@mui/material";
 import ToSearchButton from '../../UIkits/ToSearchButton';
 import { useRouter } from 'next/router';
 import SearchIcon from '@mui/icons-material/Search';
+import Profile from '../Profile/Profile';
 
 export default function Heading() {
   const router = useRouter();
   const urlHidden = router.pathname.split('/')[1]
   return (
     <div className={styles.header_root}>
+      <br/>
+      <Profile/>
         <AppBar className={styles.header_menuBar}>
           <Toolbar className={styles.toolbar}>
             <div className={styles.header_left}>
@@ -25,7 +28,7 @@ export default function Heading() {
             </div>
           </Toolbar>
         </AppBar>
-        <div style={{marginTop:'50px'}}>
+        <div style={{marginTop:'10px'}}>
         {/*
         <div style={{marginTop:'0px',position:'fixed', right:0,zIndex:100}}>marginTop:'50px'
         */}

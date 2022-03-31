@@ -1,13 +1,38 @@
 .all_search_searchField {
-  text-align: center; 
+  text-align: center;
+}
+.all_search_textfield_group {
+  text-align: center;
 }
 .all_search_textfield {
   width: 80vw;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 .all_search_search_button {
   text-align: center;
 }
 .all_search_search_button_button {
+  border-radius: 10px;
   text-align: center;
-  width: 30vw;
+  width: 150px;
+  height: 35px;
+  background-color: rgb(0, 140, 255);
+  color: white;
+}
+.all_search_search_button_button:hover {
+  background-color: rgb(49, 172, 255);
+}
+.all_search_search_button_button:active {
+  padding-left: 10px;
+  padding-top: 10px;
 } 
+
+.all_search__searchkeywordlist {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 550;
+  color: rgb(104, 104, 104);
+}
+.all_search__searchkeywordlist_group {
+}

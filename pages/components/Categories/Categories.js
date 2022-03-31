@@ -30,7 +30,6 @@ export default function Categories() {
             })
           }
         </ul>
-        <br/>
       </div>
   )
 }

@@ -11,7 +11,7 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = pool;
-  const ORDER_BY = 'DESC';
+  const ORDER_BY = 'ASC';
   const PAGE_NUM = 16;//1ページに表示する件数
 
   const TAG_NAME = req.query.tag ? `${req.query.tag}` : 'ジャルジャル';

@@ -21,7 +21,7 @@ export default function About() {
           <p className={styles.about__text}>
             お問い合わせは下記Twitterアカウントに、リプもしくはDMにて宜しくお願い致します。
           </p>
-          <a href='https://twitter.com/JarujaruDB_' target='_blank'>
+          <a href='https://twitter.com/JarujaruDB_' rel="noreferrer" target='_blank'>
             <p className={styles.about__twitter}>
             <TwitterIcon/>@JarujaruDB_
           </p>

@@ -38,7 +38,7 @@ export default function Footer() {
         </Typography>
         
           <p className={styles.footer__twitter}>
-            <a href="https://twitter.com/JarujaruDB_" target='_blank' className={styles.footer__twitter_link}>
+            <a href="https://twitter.com/JarujaruDB_" rel="noreferrer" target='_blank' className={styles.footer__twitter_link}>
             <TwitterIcon/>@JarujaruDB_
             </a>
           </p>

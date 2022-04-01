@@ -50,7 +50,7 @@ export default function Search() {
     //console.log('page:',page)
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
-    const data = await response.json();
+    const data = await response.json().catch((error) => alert('合致しませんでした。\n別のキーワードでお試しください！'))
 
 
     setNetanotaneList(data.rows);//.rows);//取得データ

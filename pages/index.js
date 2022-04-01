@@ -62,25 +62,39 @@ export default function Home() {
               const views_ = data.views.replace(/{|}|"/g, '');
               const created_at_ = data.created_at.replace(/{|}|"/g, '');
 
-              const beforestr = data.url
-              const regex = /(?<=v=)(.*)/
+              const beforestr = data.url;
+              //const regex = /(?<=v=)(.*)/;
+              const regex = /(?<=(www.youtube.com))(.*)/;
               const result = beforestr.match(regex);
               const urlv = result[0]
+              let gotolink = 'https://www.youtube.com'+urlv;
+              //console.log(gotolink)
               
-              let gotolink = 'https://www.youtube.com/watch?v='+urlv
-              const viewstext = ' 回視聴'
+              const viewstext = ' 回視聴 以上'
               
               // duration
-              const duraiton_ = data.duration.replace('.','分');
-              let duration__ = duraiton_.replace(':','時間');
-              const rege1 = /d*分d*/;
-              const rege2 = /d*時間d*/;
-              if (rege1.test(duration__)) {
-                duration__ = `${duration__}秒`;
-                if (rege2.test(duration__)) {//時間の場合
-                  duration__ = duration__.replace('秒','')
-                } else false
-              } else false
+              let duration__ = data.duration.replace('.',':');
+              const rege1 = /d*:$/;
+              const rege2 = /:[0-9]$/;
+              if (rege1.test(duration__)) {// 3: ➝ 3
+                  duration__ = `${duration__.slice(0, duration__.length -1)}`;
+              } if (rege2.test(duration__)) {// 5:3 ➝ 5:03
+                const sliced_end = duration__.slice(-1);
+                const between_int = '0';
+                const sliced_start = duration__.slice(0, -1);
+                const sliced_result = sliced_start+between_int+sliced_end;
+                duration__ = sliced_result;
+              } else false;
+              //const duraiton_ = data.duration.replace('.','分');
+              //let duration__ = duraiton_.replace(':','時間');
+              //const rege1 = /d*分d*/;
+              //const rege2 = /d*時間d*/;
+              //if (rege1.test(duration__)) {
+              //  duration__ = `${duration__}秒`;
+              //  if (rege2.test(duration__)) {//時間の場合
+              //    duration__ = duration__.replace('秒','')
+              //  } else false
+              //} else false
 
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
@@ -121,7 +135,8 @@ export default function Home() {
             <Pagination
               count={count}//総ページ数
               color="primary"
-              onChange={clickPage}
+              variant="outlined"
+              onChange={clickPage}//変更されたときに走る関数。第2引数にページ番号が入る
               page={page}
             />
           </div>

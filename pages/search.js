@@ -46,8 +46,8 @@ export default function Search() {
 
   //取得データのセットと総データ件数をセットする
   const setNetanotaneListAPI = async(page, searchKeywordList) => {
-    console.log('第２引数',searchKeywordList)
-    console.log('page:',page)
+    //console.log('第２引数',searchKeywordList)
+    //console.log('page:',page)
     const response = await fetch(`https://jarujarudb.vercel.app/api/moviesdb/search?page=${page}&searchkeywordlist=${searchKeywordList}`);
     //const response = await fetch(`http://localhost:3000/api/moviesdb/search1?page=${page}&searchkeywordlist=${searchKeywordList}`);
     const data = await response.json();
@@ -130,31 +130,63 @@ export default function Search() {
               const views_ = data.views.replace(/{|}|"/g, '');
               const created_at_ = data.created_at.replace(/{|}|"/g, '');
 
-              const beforestr = data.url
-              const regex = /(?<=v=)(.*)/
+              // url
+              /*
+              const beforestr = data.url;
+              const regex = /(?<=v=)(.*)/;
               const result = beforestr.match(regex);
               const urlv = result[0]
-              
+              console.log(urlv)
               let gotolink = 'https://www.youtube.com/watch?v='+urlv;
               const viewstext = ' 回視聴';
-
+              */
+              const beforestr = data.url;
+              //const regex = /(?<=v=)(.*)/;
+              const regex = /(?<=(www.youtube.com))(.*)/;
+              const result = beforestr.match(regex);
+              const urlv = result[0]
+              let gotolink = 'https://www.youtube.com'+urlv;
+              //console.log(gotolink)
+              const viewstext = ' 回視聴';
+              
               // duration
-              const duraiton_ = data.duration.replace('.','分');
-              let duration__ = duraiton_.replace(':','時間');
-              const rege1 = /d*分d*/;
-              const rege2 = /d*時間d*/;
-              if (rege1.test(duration__)) {
-                duration__ = `${duration__}秒`;
-                if (rege2.test(duration__)) {//時間の場合
-                  duration__ = duration__.replace('秒','')
-                } else false
-              } else false
+              let duration__ = data.duration.replace('.',':');
+              const rege1 = /d*:$/;
+              const rege2 = /:[0-9]$/;
+              const rege3 = /^[0-9][0-9]$/;
+              if (rege1.test(duration__)) {// 3: ➝ 3
+                  duration__ = `${duration__.slice(0, duration__.length -1)}`;
+              } if (rege3.test(duration__)) {// 
+                console.log(rege3.test(duration__))
+                const rege3_result = duration__+'秒';
+                duration__ = rege3_result;
+              } if (rege2.test(duration__)) {// 5:3 ➝ 5:03
+                const sliced_end = duration__.slice(-1);
+                const between_int = '0';
+                const sliced_start = duration__.slice(0, -1);
+                const sliced_result = sliced_start+between_int+sliced_end;
+                duration__ = sliced_result;
+              } else false;
+              //const duraiton_ = data.duration.replace('.','分');
+              //let duration__ = duraiton_.replace(':','時間');
+              //const rege1 = /d*分d*/;
+              //const rege2 = /d*時間d*/;
+              //if (rege1.test(duration__)) {
+              //  duration__ = `${duration__}秒`;
+              //  if (rege2.test(duration__)) {//時間の場合
+              //    duration__ = duration__.replace('秒','')
+              //  } else false
+              //} else false
+
+              //const thumbnail__ = (data.thumbnail.length > 0) ? data.thumbnail : [(NoImage)];
 
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
+
                       <Image src={data.thumbnail} width={462} height={260} />
+                      
                       <p className={`${stylesDataList.datalist_duration}`}>
                         {duration__}
                       </p>
@@ -191,6 +223,7 @@ export default function Search() {
             <Pagination
               count={count}//総ページ数
               color="primary"
+              variant="outlined"
               onChange={clickPage}//変更されたときに走る関数。第2引数にページ番号が入る
               page={page}
             />

@@ -58,20 +58,37 @@ export default function Netanotane() {
                 
         {netanotaneList.length > 0 ? (
             netanotaneList.map((data) => {
-              const beforestr = data.url
-              const regex = /(?<=v=)(.*)/
+              const beforestr = data.url;
+              //const regex = /(?<=v=)(.*)/;
+              const regex = /(?<=(www.youtube.com))(.*)/;
               const result = beforestr.match(regex);
               const urlv = result[0]
+              let gotolink = 'https://www.youtube.com'+urlv;
+              //console.log(gotolink)
               
-              let gotolink = 'https://www.youtube.com/watch?v='+urlv
               const viewstext = ' 回視聴'
+
+              // duration
+              let duration__ = data.duration.replace('.',':');
+              const rege1 = /d*:$/;
+              const rege2 = /:[0-9]$/;
+              if (rege1.test(duration__)) {// 3: ➝ 3
+                  duration__ = `${duration__.slice(0, duration__.length -1)}`;
+              } if (rege2.test(duration__)) {// 5:3 ➝ 5:03
+                const sliced_end = duration__.slice(-1);
+                const between_int = '0';
+                const sliced_start = duration__.slice(0, -1);
+                const sliced_result = sliced_start+between_int+sliced_end;
+                duration__ = sliced_result;
+              } else false;
+
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
                       <p className={`${stylesDataList.datalist_duration}`}>
-                        {data.duration}
+                        {duration__}
                       </p>
                       <CardContent style={{ height:"180px" }}>
                       <p className={stylesDataList.datalist_title}>
@@ -104,6 +121,7 @@ export default function Netanotane() {
             <Pagination
               count={count}//総ページ数
               color="primary"
+              variant="outlined"
               onChange={clickPage}//変更されたときに走る関数。第2引数にページ番号が入る
               page={page}
             />

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
   const keyword = req.query.searchKeyword ? req.query.searchKeyword : 'ジャルジャル';
 
-  const ORDER_BY = 'ASC'
+  const ORDER_BY = 'DESC'
   const PAGE_NUM = 16;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
 

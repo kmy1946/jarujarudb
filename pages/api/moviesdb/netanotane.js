@@ -11,7 +11,7 @@ const selectAll = (db, query) => {
 
 export default async function handler(req, res) {
   const db = pool;
-  const ORDER_BY = 'ASC'
+  const ORDER_BY = 'DESC'
   const PAGE_NUM = 8;//1ページに表示する件数
   const offset_coefficient = !req.query || !req.query.page ? 0: req.query.page - 1;//ページ番号
   //count(*) as count

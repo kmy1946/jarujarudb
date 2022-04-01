@@ -1,3 +1,4 @@
+import TwitterIcon from '@mui/icons-material/Twitter';
 import styles from "../../styles/about.module.css";
 import Layout from "../components/layout";
 export default function About() {
@@ -14,6 +15,18 @@ export default function About() {
         <br/>
         <br/>
         <div className={styles.about__description}>
+          <p className={styles.about__h2}>
+            お問い合わせ
+          </p>
+          <p className={styles.about__text}>
+            お問い合わせは下記Twitterアカウントに、リプもしくはDMにて宜しくお願い致します。
+          </p>
+          <a href='https://twitter.com/JarujaruDB_' target='_blank'>
+            <p className={styles.about__twitter}>
+            <TwitterIcon/>@JarujaruDB_
+          </p>
+          </a>
+          <br/><br/>
           <p className={styles.about__h2}>
             参考にさせて頂いたサイト
           </p>

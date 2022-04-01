@@ -1,4 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
+import TwitterIcon from '@mui/icons-material/Twitter';
 import styles from "../../../../styles/Footer.module.css";
 import FooterAbout from "./FooterAbout";
 import FooterArchive from "./FooterArchive";
@@ -35,6 +36,14 @@ export default function Footer() {
               {new Date().getFullYear()}
               {"."}
         </Typography>
+        
+          <p className={styles.footer__twitter}>
+            <a href="https://twitter.com/JarujaruDB_" target='_blank' className={styles.footer__twitter_link}>
+            <TwitterIcon/>@JarujaruDB_
+            </a>
+          </p>
+        
+        
       </Container>
     </div>
   )

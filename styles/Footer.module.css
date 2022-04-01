@@ -15,6 +15,14 @@
 .footer__title {
   text-align: center;
 }
+.footer__twitter_link {
+  color: rgb(0, 102, 255);
+  display: flex;
+justify-content: center;
+}
+.footer__twitter_link:hover {
+  color: rgb(58, 166, 255);
+}
 .footer__totop_box {
   margin-bottom: 30px;
 }

@@ -7,11 +7,14 @@ export default function Profile() {
     <div className={styles.prf__group}>
       <div className={styles.prf__card_container}>
         <div className={styles.prf__card_img}>
-          <Link href="/">
+          <a href="https://www.youtube.com/user/comtekaigi" rel="noreferrer" target='_blank'>
             <img src="/static/jarujaruprf.png" alt="" 
-              className={styles.prj__img}
+              className={styles.prf__img}
             />
-          </Link>
+            <p className={styles.prf__ref}>
+              出展：ジャルジャルタワー
+            </p>
+          </a>
         </div>
         <Link href="/">
           <div className={styles.prf__card_text}>

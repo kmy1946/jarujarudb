@@ -31,6 +31,11 @@ export default function About() {
               ひろゆきデータベース
             </a>
           </p>
+          <p>
+            <a href="https://kirinuki.ai/" rel="noreferrer" target='_blank' className={styles.about_hiroyukilink}>
+              KirinukiDB
+            </a>
+          </p>
           <br/>
           <p className={styles.about__h2}>
             独自性

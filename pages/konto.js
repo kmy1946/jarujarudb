@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Card, CardActionArea, CardContent, Grid, Pagination as MuiPagination, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardContent, Grid, LinearProgress, Pagination as MuiPagination, Typography } from '@mui/material';
 import { withStyles } from '@mui/styles';
 
 import styles from '../styles/Home.module.css';
@@ -61,8 +61,17 @@ export default function Netanotane() {
             netanotaneList.map((data) => {
               // title, views, created_at, から{}を取り除く
               const title_ = data.title.replace(/{|}|"/g, '');
-              const views_ = data.views.replace(/{|}|"/g, '')+'0';
+              const views_ = data.views.replace(/{|}|,|"| /g, '');
               const created_at_ = data.created_at.replace(/{|}|"/g, '');
+
+              // created_at
+              var date1 = new Date();
+              var date2 = new Date(created_at_)
+              var termDay = (date1 - date2)/(86400000)//86400000;
+              var views___ = views_.replace(/,/g,'')
+              var diff = views___ / termDay
+              //console.log(views___)
+              //console.log(title_,diff)
 
               const beforestr = data.url;
               //const regex = /(?<=v=)(.*)/;
@@ -72,8 +81,21 @@ export default function Netanotane() {
               let gotolink = 'https://www.youtube.com'+urlv;
               //console.log(gotolink)
               
-              const viewstext = ' 回視聴 以上'
-              
+              // views
+              const viewstext = ' 回視聴 以上';
+
+              // progress_views
+              const views_cut = views_.replace(/,/g,'');
+              let progress_v = ''
+
+              const range = (start, end) => {
+                const list = [];
+                for (let i = start; i <= end; i++ ) {
+                  list.push(i);
+                }
+                return list;
+              }
+
               // duration
               let duration__ = data.duration.replace('.',':');
               const rege1 = /d*:$/;
@@ -98,22 +120,48 @@ export default function Netanotane() {
                 const replace_h = replace_m.replace(':','時間')
                 duration__ = replace_h+'分';
               } else false;
-              //const duraiton_ = data.duration.replace('.','分');
-              //let duration__ = duraiton_.replace(':','時間');
-              //const rege1 = /d*分d*/;
-              //const rege2 = /d*時間d*/;
-              //if (rege1.test(duration__)) {
-              //  duration__ = `${duration__}秒`;
-              //  if (rege2.test(duration__)) {//時間の場合
-              //    duration__ = duration__.replace('秒','')
-              //  } else false
-              //} else false
+
+              const duration__t = duration__.replace(/時間/g,':');
+              const duration__tt = duration__t.replace(/分/g,'');// 3:34
+
+              const turning_ = data.turning;
+              const rege_t = /[0-9]*:[0-9]*/;
+              const rege_tyokonto = /超コント/;
+              let d_progress = ''
+              if (rege_t.test(duration__)) {
+                // duraion__の変換
+                const d_start = duration__tt.slice(':')[0];
+                const d_end = duration__tt.slice(-2);
+                const d_m = d_start*60;
+                const d_total = Number(d_m) + Number(d_end)
+                //turningの変換
+                if (data.turning){
+                  const t_start = data.turning.slice(':')[0]
+                  const t_end = data.turning.slice(-2);
+                  
+                  const t_m = t_start*60;
+                  const t_total = Number(t_m) + Number(t_end)
+                  d_progress = (t_total/d_total)*100
+                } else {
+                  d_progress = 0
+                }
+                
+              } if (rege_tyokonto.test(data.title)) {
+                duration__ = null
+              }
 
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
+                      <div className={stylesDataList.datalist_progress}>
+                        <LinearProgress variant="determinate" value={d_progress} className={stylesDataList.datalist_progress_}/>
+                        <p className={stylesDataList.datalist_progress_text}>{data.turning}</p>
+                      </div>
+                      <p className={`${stylesDataList.datalist_duration}`}>
+                        {duration__}
+                      </p>
                       <p className={`${stylesDataList.datalist_duration}`}>
                         {duration__}
                       </p>

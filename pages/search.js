@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Grid, TextField, Pagination as MuiPagination, Card, CardActionArea, CardContent, Typography } from '@mui/material';
+import { Button, Grid, TextField, Pagination as MuiPagination, Card, CardActionArea, CardContent, Typography, LinearProgress, duration } from '@mui/material';
 import { withStyles } from '@mui/styles';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -161,32 +161,6 @@ export default function Search() {
                 }
                 return list;
               }
-
-              const list_v = range(2, 5);
-
-              if (views_cut>100*10**4){
-                progress_v=100;
-              } if (views_cut>90*10**4){
-                progress_v=90;
-              } if (views_cut>80*10**4){
-                progress_v=80;
-              } if (views_cut>70*10**4){
-                progress_v=70;
-              } if (views_cut>60*10**4){
-                progress_v=60;
-              } if (views_cut>50*10**4){
-                progress_v=50;
-              } if (views_cut>40*10**4){
-                progress_v=40;
-              } if (views_cut>30*10**4){
-                progress_v=30;
-              } if (views_cut>20*10**4){
-                progress_v=20;
-              } if (views_cut>10*10**4){
-                progress_v=10;
-              } else {
-                progress_v=5
-              }
               
               // duration
               let duration__ = data.duration.replace('.',':');
@@ -213,11 +187,47 @@ export default function Search() {
                 duration__ = replace_h+'分';
               } else false;
 
+              const duration__t = duration__.replace(/時間/g,':');
+              const duration__tt = duration__t.replace(/分/g,'');// 3:34
+
+              const turning_ = data.turning;
+              const rege_t = /[0-9]*:[0-9]*/;
+              const rege_tyokonto = /超コント/;
+              let d_progress = ''
+              if (rege_t.test(duration__)) {
+                // duraion__の変換
+                const d_start = duration__tt.slice(':')[0];
+                const d_end = duration__tt.slice(-2);
+                const d_m = d_start*60;
+                const d_total = Number(d_m) + Number(d_end)
+                //turningの変換
+                if (data.turning){
+                  const t_start = data.turning.slice(':')[0]
+                  const t_end = data.turning.slice(-2);
+                  
+                  const t_m = t_start*60;
+                  const t_total = Number(t_m) + Number(t_end)
+                  d_progress = (t_total/d_total)*100
+                } else {
+                  d_progress = 0
+                }
+                
+              } if (rege_tyokonto.test(data.title)) {
+                duration__ = null
+              }
+
               return (
                 <Grid item xs={12} sm={3} key={data.no}>
                   <Card className={stylesDataList.datalist_card}>
                     <CardActionArea href={gotolink} target='_blank'>
                       <Image src={data.thumbnail} width={462} height={260} />
+                      <div className={stylesDataList.datalist_progress}>
+                        <LinearProgress variant="determinate" value={d_progress} className={stylesDataList.datalist_progress_}/>
+                        <p className={stylesDataList.datalist_progress_text}>{data.turning}</p>
+                      </div>
+                      <p className={`${stylesDataList.datalist_duration}`}>
+                        {duration__}
+                      </p>
                       <p className={`${stylesDataList.datalist_duration}`}>
                         {duration__}
                       </p>

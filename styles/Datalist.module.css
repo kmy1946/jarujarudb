@@ -6,6 +6,9 @@
   position: relative;
   margin: 3px;
 }
+.datalist_cardcontent {
+  height: 150px;
+}
 .datalist_duration {
   position: absolute;
 
@@ -39,10 +42,15 @@
   height: 5px;
 }
 .datalist_gotolink__group {
-  text-align: right;
+  text-align: left;
 }
 .datalist_gotolink {
 }
 .datalist_views {
   text-align: left;
+}
+
+
+@media screen and (max-width: 600px) {
+  
 }

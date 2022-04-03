@@ -7,6 +7,8 @@ import Categories from "./Categories/Categories";
 import Footer from "./base/Footer/Footer";
 import TopCategories from "./TopPage/TopPage/TopCategories";
 import Profile from "./base/Profile/Profile";
+import Adv1 from "./Adv/Adv1";
+import Adv2 from "./Adv/Adv2";
 
 export default function Layout(props) {
   return (
@@ -18,8 +20,14 @@ export default function Layout(props) {
         </Head>
         <Heading/>
         <Header header={props.header} />
-          <Categories/>
-          {props.children}
+        {/*
+        <Adv1/>
+        */}
+        <Categories/>
+        {props.children}
+        {/*
+        <Adv2/>
+        */}
       </div>
       <TopCategories/>
       <Footer/>

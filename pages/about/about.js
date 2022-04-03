@@ -4,15 +4,11 @@ import Layout from "../components/layout";
 export default function About() {
   return (
       <Layout>
-        <br/>
-        <br/>
-        <br/>
         <div>
           <p className={styles.about_h1}>
             ジャルジャルデータベースについて
           </p>
         </div>
-        <br/>
         <br/>
         <div className={styles.about__description}>
           <p className={styles.about__h2}>
@@ -40,10 +36,10 @@ export default function About() {
             独自性
           </p>
           <p className={styles.about__text}>
-            YouTubeでは関連性に基づいた検索が実行されますが、当サイトでは{new Date().getFullYear()}年現在単純な文字列検索を実行します。
+            YouTubeでは関連性に基づいた検索が実行されますが、当サイトでは{new Date().getFullYear()}年現在、単純な文字列検索を実行します。
           </p>
           <p className={styles.about__text}>
-            無限スクロールによる読み込みに対して、<stropng>ページネーション</stropng>による一覧表示で過去の動画にさかのぼる際に予期せず起こる画面の再レンダリングを予防できます。
+            無限スクロールによる読み込みに対して、ページネーションによる一覧表示で過去の動画にさかのぼる際に予期せず起こる画面の再レンダリングを予防できます。
           </p>
           <br/>
           <br/>
@@ -52,6 +48,9 @@ export default function About() {
           </p>
           <p className={styles.about__text}>
             グリッドやカードなど主要部には、material-uiを使用しています。
+          </p>
+          <p className={styles.about__text}>
+            PC、スマホ、iPadなど多くのデバイスに対応しています。
           </p>
           <br/>
           <br/>
@@ -65,6 +64,9 @@ export default function About() {
           <br/>
           <p className={styles.about__h2}>
             今後について
+          </p>
+          <p className={styles.about__text}>
+            データベース、バックエンドで独自の分類、解析を試みています。
           </p>
           <p className={styles.about__text}>
             動画データ及び検索機能の仕様、サイトデザイン、URLの変更・追加は随時更新していきます。

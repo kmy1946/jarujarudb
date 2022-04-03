@@ -6,6 +6,7 @@ export default function Profile() {
   return(
     <div className={styles.prf__group}>
       <div className={styles.prf__card_container}>
+        {/*
         <div className={styles.prf__card_img}>
           <a href="https://www.youtube.com/user/comtekaigi" rel="noreferrer" target='_blank'>
             <img src="/static/jarujaruprf.png" alt="" 
@@ -16,6 +17,7 @@ export default function Profile() {
             </p>
           </a>
         </div>
+        */}
         <Link href="/">
           <div className={styles.prf__card_text}>
             <p>ジャルジャル データベース</p>
